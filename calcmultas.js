@@ -49,12 +49,13 @@ function addPenalty(comp) {
 
 function calcTotal() {
     
-    let suma = 0;
+    let totalMoney = 0, totalTimeJail = 0;
 
     penalties.forEach(element => {
-        suma += parseFloat(multas.Trafico[element].Precio);
+        totalMoney += parseFloat(multas.Trafico[element].Precio);
+        totalTimeJail += parseInt(multas.Trafico[element].Federal);
     });
 
-    total.innerHTML = "El total es: " + suma + "k euros";
+    total.innerHTML = "El total es: <b>" + totalMoney + "k euros </b> y <b>" + totalTimeJail + " meses en federal </b>";
 
 }
