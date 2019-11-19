@@ -1,0 +1,27 @@
+* {
+    text-align: center;
+}
+
+h2 {
+    padding: 10px;
+    text-align: center;
+}
+
+.multa {
+    width: 100%;
+}
+
+.multa button {
+    width: 200px;
+}
+
+.multa .card {
+    margin: 0px 10px 10px 0px;
+    width: 30%;
+}
+
+.calcularMultas button {
+    width: 250px;
+    margin: 20px;
+    padding: 5px;
+}
