@@ -192,11 +192,12 @@ var multasLeves = document.getElementById("contenidoMultasLeves");
 var resultado = document.getElementById("resultado");
 var total = document.getElementById("total");
 
-var idMultas = 0;
+var idMultas = 0; // VARIABLE PARA SABER QUÉ ID TIENE CADA MULTA
 
-var traficPenalties = [];
-var slightPenalties = [];
+var traficPenalties = []; // ARRAY CON LAS MULTAS DE TRÁFICO
+var slightPenalties = []; // ARRAY CON LAS MULTAS LEVES
 
+// MOSTRAMOS LAS MULTAS DE TRÁFICO
 for (var i = 0; i < multas.Trafico.length; i++) {
     multasTrafico.innerHTML +=
         '<div class="card"> ' +
@@ -212,7 +213,10 @@ for (var i = 0; i < multas.Trafico.length; i++) {
         '</div> ' +
         '</div> ';
 }
+//-------------------------------------------------------
 
+
+// MOSTRAMOS LAS MULTAS LEVES
 for (var i = 0; i < multas.Leves.length; i++) {
     console.log(i);
     multasLeves.innerHTML +=
@@ -229,11 +233,14 @@ for (var i = 0; i < multas.Leves.length; i++) {
         '</div> ' +
         '</div> ';
 }
+//---------------------------------------------------------------
 
+// FUNCIÓN PARA AÑADIR UNA MULTA A LA LISTA DE CÁLCULO
 function addPenalty(comp) {
 
     let index = 0;
 
+    // COMPROBAMOS A QUÉ MULTA PERTENECE EL BOTÓN PULSADO
     if (comp.id > multas.Trafico.length-1) {
         index = comp.id - multas.Trafico.length;
         addSlightList(index);
@@ -243,6 +250,7 @@ function addPenalty(comp) {
         addTraficList(index);
         traficPenalties.push(index);
     }
+    //----------------------------------------------------
 
     console.log("Array: " + index);
 
@@ -253,11 +261,13 @@ function calcTotal() {
     let totalMoney = 0,
         totalTimeJail = 0;
 
+    // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS DE TRÁFICO
     traficPenalties.forEach(element => {
         totalMoney += parseFloat(multas.Trafico[element].Precio);
         totalTimeJail += parseInt(multas.Trafico[element].Federal);
     });
 
+    // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS LEVES
     slightPenalties.forEach(element => {
         totalMoney += parseFloat(multas.Leves[element].Precio);
         totalTimeJail += parseInt(multas.Leves[element].Federal);
@@ -267,6 +277,7 @@ function calcTotal() {
 
 }
 
+// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO TRÁFICO EN LA LISTA DE CÁLCULO
 function addTraficList(index) {
     resultado.innerHTML +=
         '<div class="card"> ' +
@@ -280,6 +291,7 @@ function addTraficList(index) {
         '</div> ';
 }
 
+// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO LEVE EN LA LISTA DE CÁLCULO
 function addSlightList(index) {
     resultado.innerHTML +=
         '<div class="card"> ' +

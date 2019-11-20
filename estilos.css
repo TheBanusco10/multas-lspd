@@ -4,22 +4,40 @@
 }
 
 body {
-    background-color: #FAFAFA;
+    background-image: url(imgs/coche-fondo.jpg);
 }
 
 h2 {
+    font-size: 50px;
     padding: 10px;
+    margin-top: 15px;
+
+    color: #829FD9;
+    font-family: 'Bebas Neue', cursive;
+
+    background-color: rgb(44, 44, 44, .8);
+    border-radius: 5px;
 }
 
 header nav ul li {
     list-style: none;
     display: inline-block;
     
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 header nav ul li a {
     padding: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+header nav ul li a:hover {
+    padding: 10px;
+    color: rgb(209, 206, 206);
+    font-size: 20px;
+
+    text-decoration: none;
 }
 
 header nav ul {
@@ -36,7 +54,7 @@ header {
     position: relative;
     height: 90px;
     width: 100%;
-    background-color: green;
+    background-color: rgb(44, 44, 44);
 }
 
 #contenido {
@@ -59,6 +77,10 @@ header {
     background-color: rgb(16, 25, 95);
 }
 
+.btn {
+    width: 200px;
+}
+
 .multa {
     width: 100%;
 }
@@ -68,8 +90,8 @@ header {
 }
 
 .multa .card {
-    width: 100%;
-    margin: 10px;
+    width: auto;
+    margin: 5px;
 }
 
 .multa .card .card-header {
