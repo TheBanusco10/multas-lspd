@@ -1,46 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Sistema de multas LVPD</title>
-  </head>
-  <body>
-    <h2>Multas disponibles</h2>
+  <script src="https://kit.fontawesome.com/04702df722.js" crossorigin="anonymous"></script>
 
-    <div class="container">
-            <div id="contenido" class="multa row">
-                
-            </div> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilos.css">
+
+  <title>Sistema de multas LVPD</title>
+
+</head>
+
+<body>
+
+
+  <header class="container-fluid">
+    <nav class="row mx-auto">
+      <ul>
+        <li><a href="">Multas</a></li>
+        <li><a href="">Jurisdicción</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="multasDisponibles" class="container">
+    <div class="multa row">
+      <h2 class="col-lg-12 col-md-12 col-sm-12">Multas disponibles</h2>
+
+      <p class="col-lg-12">
+        <a class="btn btn-primary" data-toggle="collapse" href="#multasTrafico" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Multas de tráfico
+        </a>
+      </p>
+
+      <div class="collapse col-lg-12" id="multasTrafico">
+        <div class="card card-body" id="contenidoMultasTrafico">
+          
+        </div>
+      </div>
+
+      <p class="col-lg-12">
+        <a class="btn btn-primary" data-toggle="collapse" href="#multasLeves" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Multas leves
+        </a>
+      </p>
+
+      <div class="collapse col-lg-12" id="multasLeves">
+          <div class="card card-body" id="contenidoMultasLeves">
+            
+          </div>
+        </div>
+
     </div>
 
     
 
-    <div class="container calcularMultas">
-        <h2>Multas a calcular</h2>
-        <div id="resultado" class="multa row">
+  </section>
 
-        </div>
 
-        <div class="row">
+  <section id="calcularMultas" class="container">
+      <div class="multa row">
+          <h2 class="col-lg-12 col-md-12 col-sm-12">Multas a calcular</h2>
+          <div id="resultado" class="col-lg-12"></div>
+
           <div class="col-md-12 col-lg-12">
-            <button onclick="calcTotal()">Calcular</button>
-            <p id="total"></p>
-          </div>
-        </div>
-    </div>
+              <button onclick="calcTotal()"><span class="fas fa-calculator iconoCalculadora"></span>Calcular</button>
+              <p id="total"></p>
+            </div>
+      </div>
+      
+  </section>
 
+  
+  <!--BOTONES PARA SUBIR Y BAJAR RÁPIDAMENTE EN LA PÁGINA-->
+  <div class="iconoSubir">
+      <a href="#multasDisponibles" class="fas fa-arrow-up"></a>
+  </div>
+  <div class="iconoBajar">
+      <a href="#calcularMultas" class="fas fa-arrow-down"></a>
+  </div>
 
-    <!-- Optional JavaScript -->
-    <script src="calcmultas.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  
+
+  <!-- Optional JavaScript -->
+  <script src="calcmultas.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>
