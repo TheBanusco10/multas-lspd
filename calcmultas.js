@@ -271,12 +271,19 @@ function calcTotal() {
         totalTimeJail += parseInt(multas.Leves[element].Federal);
     });
 
-    total.innerHTML = "El total es: <b>" + totalMoney + " euros </b> y ";
+    total.innerHTML = '<div class="alert alert-success" role="alert">'+
+    '<h4 class="alert-heading">TOTAL</h4>' +
+    '<p id="parrafo"><b>' + totalMoney + ' euros / </b></p>' +
+    '<hr>' +
+    '<p>Sistema LSPD</p>' +
+  '</div>';
+
+    let parrafo = document.getElementById("parrafo");
 
     if (totalTimeJail < TIMEJAILMINIMUM)
-        total.innerHTML += "<b>" + totalTimeJail + " meses en prisión </b>";
+        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en prisión </b>";
     else
-        total.innerHTML += "<b>" + totalTimeJail + " meses en federal </b>";
+        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";
 
 }
 
