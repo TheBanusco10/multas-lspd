@@ -68,8 +68,10 @@ header {
 #multasDisponibles button {
     border: none;
     padding: 5px;
+
     background-color: #080E33;
     color: white;
+
     border-radius: 4px;
 }
 
@@ -79,6 +81,8 @@ header {
 
 .btn {
     width: 200px;
+
+    margin-top: 10px;
 }
 
 .multa {
@@ -113,6 +117,16 @@ header {
 
 #calcularMultas button:hover {
     background-color: rgb(26, 49, 175);
+}
+
+#parrafoTotal {
+
+    padding: 5px;
+    border-radius: 5px;
+
+    color: white;
+
+    background-color: rgb(44, 44, 44, .7);
 }
 
 .iconoSubir {
