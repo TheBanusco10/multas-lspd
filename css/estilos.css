@@ -1,0 +1,99 @@
+@import url(header.css);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../imgs/coche-fondo.jpg);
+}
+
+h2, h3 {
+    font-size: 50px;
+    padding: 10px;
+    margin-top: 15px;
+
+    color: #829FD9;
+    font-family: 'Bebas Neue', cursive;
+
+    background-color: rgb(44, 44, 44, .8);
+    border-radius: 5px;
+}
+
+#contenido {
+    width: 100%;
+}
+
+#multasDisponibles, #calcularMultas {
+    text-align: center;
+}
+
+#multasDisponibles button {
+    border: none;
+    padding: 5px;
+
+    background-color: #080E33;
+    color: white;
+
+    border-radius: 4px;
+}
+
+#multasDisponibles button:hover {
+    background-color: rgb(16, 25, 95);
+}
+
+.btn {
+    width: 200px;
+
+    margin-top: 10px;
+}
+
+.multa {
+    width: 100%;
+}
+
+.multa button {
+    width: 200px;
+}
+
+.multa .card {
+    width: auto;
+    margin: 5px;
+}
+
+.multa .card .card-header {
+    font-size: 25px;
+}
+
+#calcularMultas button {
+    width: 200px;
+
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+
+    border: none;
+    background-color: #2039CC;
+    border-radius: 4px;
+
+    color: white;
+}
+
+#calcularMultas button:hover {
+    background-color: rgb(26, 49, 175);
+}
+
+/*#parrafoTotal {
+
+    padding: 5px;
+    border-radius: 5px;
+
+    color: white;
+
+    background-color: rgb(44, 44, 44, .7);
+}*/
+
+.iconoTienda,
+.iconoCalculadora {
+    margin-right: 5px;
+}

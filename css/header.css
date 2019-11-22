@@ -1,0 +1,66 @@
+header nav ul li {
+    list-style: none;
+    display: inline-block;
+    
+    margin-top: 25px;
+}
+
+header nav ul li a {
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+header nav ul li a:hover {
+    padding: 10px;
+    color: rgb(209, 206, 206);
+    font-size: 20px;
+
+    text-decoration: none;
+}
+
+header nav ul {
+    width: 100%;
+    text-align: center;
+}
+
+header nav {
+    height: 100%;
+    
+}
+
+header {
+    position: relative;
+    height: 90px;
+    width: 100%;
+    background-color: rgb(44, 44, 44);
+}
+
+.iconoSubir {
+    position: fixed;
+    right: 0;
+    top: 80%;
+    z-index: 2000;
+}
+
+.iconoBajar {
+    position: fixed;
+    right: 0;
+    top: 85%;
+    z-index: 2000;
+}
+
+.iconoSubir, .iconoBajar {
+    margin-right: 10px;
+}
+
+.iconoSubir a, .iconoBajar a {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: end;
+    text-decoration: none;
+}
+
+.iconoSubir a:hover, .iconoBajar a {
+    text-decoration: none;
+}

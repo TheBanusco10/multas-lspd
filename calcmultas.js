@@ -181,11 +181,172 @@ var multas = {
             "Precio": "7000",
             "Federal": "7"
         }
+    ],
+    "Medias": [
+        {
+            "Nombre": "Portar arma sin licencia",
+            "Descripcion": "Portar arma sin licencia.",
+            "Precio": "4200",
+            "Federal": "0"
+        },
+        {
+            "Nombre": "Consumo de drogas",
+            "Descripcion": "Consumo de drogas.",
+            "Precio": "4200",
+            "Federal": "0"
+        },
+        {
+            "Nombre": "Robar a un civil",
+            "Descripcion": "Robar a un civil.",
+            "Precio": "5000",
+            "Federal": "5"
+        },
+        {
+            "Nombre": "Agredir a un civil",
+            "Descripcion": "Agredir a un civil.",
+            "Precio": "5000",
+            "Federal": "5"
+        },
+        {
+            "Nombre": "Tentar a la corrupción a un civil",
+            "Descripcion": "Tentar a la corrupción a un civil.",
+            "Precio": "5000",
+            "Federal": "5"
+        },
+        {
+            "Nombre": "Robo de vehículos",
+            "Descripcion": "Robo de vehículos.",
+            "Precio": "6000",
+            "Federal": "5"
+        },
+        {
+            "Nombre": "Posesión de dinero negro",
+            "Descripcion": "Posesión de dinero negro.",
+            "Precio": "6500",
+            "Federal": "5"
+        },
+        {
+            "Nombre": "Posesión de drogas",
+            "Descripcion": "Posesión de drogas.",
+            "Precio": "8000",
+            "Federal": "10"
+        },
+        {
+            "Nombre": "Agredir a un agente / EMS",
+            "Descripcion": "Agredir a un agente / EMS.",
+            "Precio": "8500",
+            "Federal": "20"
+        },
+        {
+            "Nombre": "Disparar un arma letal sin objetivo en ciudad",
+            "Descripcion": "Disparar un arma letal sin objetivo en ciudad.",
+            "Precio": "9000",
+            "Federal": "10"
+        },
+        {
+            "Nombre": "Uso de arma blanca en ciudad",
+            "Descripcion": "Uso de arma blanca en ciudad.",
+            "Precio": "9000",
+            "Federal": "10"
+        },
+        {
+            "Nombre": "Tentar a la corrupción a un agente / EMS",
+            "Descripcion": "Tentar a la corrupción a un agente / EMS.",
+            "Precio": "9000",
+            "Federal": "20"
+        },
+        {
+            "Nombre": "Posesión de arma ilegal",
+            "Descripcion": "Posesión de arma ilegal.",
+            "Precio": "10000",
+            "Federal": "15"
+        }
+    ],
+    "Graves": [
+        {
+            "Nombre": "Fabricación o recolección de droga",
+            "Descripcion": "Fabricación o recolección de droga.",
+            "Precio": "11000",
+            "Federal": "14"
+        },
+        {
+            "Nombre": "Asesinato involuntario de un civil",
+            "Descripcion": "Asesinato involuntario de un civil.",
+            "Precio": "12000",
+            "Federal": "17"
+        },
+        {
+            "Nombre": "Robo de tienda",
+            "Descripcion": "Robo de tienda.",
+            "Precio": "13000",
+            "Federal": "15"
+        },
+        {
+            "Nombre": "Secuestro de un rehén",
+            "Descripcion": "Secuestro de un rehén.",
+            "Precio": "13000",
+            "Federal": "18"
+        },
+        {
+            "Nombre": "Intento de homicidio a un civil",
+            "Descripcion": "Intento de homicidio a un civil.",
+            "Precio": "16000",
+            "Federal": "19"
+        },
+        {
+            "Nombre": "Robo de Joyería",
+            "Descripcion": "Robo de Joyería.",
+            "Precio": "19000",
+            "Federal": "24"
+        },
+        {
+            "Nombre": "Venta de Droga",
+            "Descripcion": "Venta de Droga.",
+            "Precio": "25000",
+            "Federal": "24"
+        },
+        {
+            "Nombre": "Venta de armas ilegales",
+            "Descripcion": "Venta de armas ilegales.",
+            "Precio": "25000",
+            "Federal": "24"
+        },
+        {
+            "Nombre": "Asesinato de un civil",
+            "Descripcion": "Asesinato de un civil.",
+            "Precio": "27000",
+            "Federal": "35"
+        },
+        {
+            "Nombre": "Robo de Banco central",
+            "Descripcion": "Robo de Banco central.",
+            "Precio": "27000",
+            "Federal": "35"
+        },
+        {
+            "Nombre": "Secuestro de un Agente / EMS",
+            "Descripcion": "Secuestro de un Agente / EMS.",
+            "Precio": "32000",
+            "Federal": "40"
+        },
+        {
+            "Nombre": "Asesinato de un Agente / EMS",
+            "Descripcion": "Asesinato de un Agente / EMS.",
+            "Precio": "50000",
+            "Federal": "65"
+        },
     ]
 }
 
+// MULTAS -------------------------------------------------------------
+
 var multasTrafico = document.getElementById("contenidoMultasTrafico");
 var multasLeves = document.getElementById("contenidoMultasLeves");
+var multasMedias = document.getElementById("contenidoMultasMedias");
+var multasGraves = document.getElementById("contenidoMultasGraves");
+
+// ------------------------------------------------------------
+
 var resultado = document.getElementById("resultado");
 var total = document.getElementById("parrafoTotal");
 
@@ -193,6 +354,9 @@ var idMultas = 0; // VARIABLE PARA SABER QUÉ ID TIENE CADA MULTA
 
 var traficPenalties = []; // ARRAY CON LAS MULTAS DE TRÁFICO
 var slightPenalties = []; // ARRAY CON LAS MULTAS LEVES
+var mediumPenalties = []; // ARRAY CON LAS MULTAS MEDIAS
+var severePenalties = []; // ARRAY CON LAS MULTAS MEDIAS
+
 const TIMEJAILMINIMUM = 20;
 
 // MOSTRAMOS LAS MULTAS DE TRÁFICO
@@ -207,16 +371,14 @@ for (var i = 0; i < multas.Trafico.length; i++) {
         '<b> ' + multas.Trafico[i].Precio + ' euros / ' + multas.Trafico[i].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '<div class="card-footer"> ' +
-        '<button onclick="addPenalty(this)" id="' + idMultas++ + '"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+        '<button onclick="addPenalty(this)" id="' + i + '" name="tipoTrafico"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
         '</div> ' +
         '</div> ';
 }
 //-------------------------------------------------------
 
-
 // MOSTRAMOS LAS MULTAS LEVES
 for (var i = 0; i < multas.Leves.length; i++) {
-    console.log(i);
     multasLeves.innerHTML +=
         '<div class="card"> ' +
         '<div class="card-header"> ' +
@@ -227,7 +389,43 @@ for (var i = 0; i < multas.Leves.length; i++) {
         '<b> ' + multas.Leves[i].Precio + ' euros / ' + multas.Leves[i].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '<div class="card-footer"> ' +
-        '<button onclick="addPenalty(this)" id="' + idMultas++ + '"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+        '<button onclick="addPenalty(this)" id="' + i + '" name="tipoLeve"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+        '</div> ' +
+        '</div> ';
+}
+//---------------------------------------------------------------
+
+// MOSTRAMOS LAS MULTAS MEDIAS
+for (var i = 0; i < multas.Medias.length; i++) {
+    multasMedias.innerHTML +=
+        '<div class="card"> ' +
+        '<div class="card-header"> ' +
+        multas.Medias[i].Nombre +
+        '</div> ' +
+        '<div class="card-body"> ' +
+        '<p class="card-text">' + multas.Medias[i].Descripcion + '<br/><br/>' +
+        '<b> ' + multas.Medias[i].Precio + ' euros / ' + multas.Medias[i].Federal + ' meses en federal </b></p> ' +
+        '</div> ' +
+        '<div class="card-footer"> ' +
+        '<button onclick="addPenalty(this)" id="' + i + '" name="tipoMedia"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+        '</div> ' +
+        '</div> ';
+}
+//---------------------------------------------------------------
+
+// MOSTRAMOS LAS MULTAS GRAVES
+for (var i = 0; i < multas.Graves.length; i++) {
+    multasGraves.innerHTML +=
+        '<div class="card"> ' +
+        '<div class="card-header"> ' +
+        multas.Graves[i].Nombre +
+        '</div> ' +
+        '<div class="card-body"> ' +
+        '<p class="card-text">' + multas.Graves[i].Descripcion + '<br/><br/>' +
+        '<b> ' + multas.Graves[i].Precio + ' euros / ' + multas.Graves[i].Federal + ' meses en federal </b></p> ' +
+        '</div> ' +
+        '<div class="card-footer"> ' +
+        '<button onclick="addPenalty(this)" id="' + i + '" name="tipoGrave"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
         '</div> ' +
         '</div> ';
 }
@@ -236,21 +434,29 @@ for (var i = 0; i < multas.Leves.length; i++) {
 // FUNCIÓN PARA AÑADIR UNA MULTA A LA LISTA DE CÁLCULO
 function addPenalty(comp) {
 
-    let index = 0;
+    let id = 0;
 
-    // COMPROBAMOS A QUÉ MULTA PERTENECE EL BOTÓN PULSADO
-    if (comp.id > multas.Trafico.length-1) {
-        index = comp.id - multas.Trafico.length;
-        addSlightList(index);
-        slightPenalties.push(index);
+    if (comp.name == "tipoTrafico") {
+        id = comp.id;
+        addTraficList(id);
+        traficPenalties.push(id)
+    }else if (comp.name == "tipoLeve") {
+        id = comp.id;
+        addSlightList(id);
+        slightPenalties.push(id);
+    }else if (comp.name == "tipoMedia") {
+        id = comp.id;
+        addMediumList(id);
+        mediumPenalties.push(id);
     }else {
-        index = comp.id;
-        addTraficList(index);
-        traficPenalties.push(index);
+        id = comp.id;
+        addSevereList(id);
+        severePenalties.push(id);
     }
-    //----------------------------------------------------
+        
+    
 
-    console.log("Array: " + index);
+    //----------------------------------------------------
 
 }
 
@@ -269,6 +475,18 @@ function calcTotal() {
     slightPenalties.forEach(element => {
         totalMoney += parseFloat(multas.Leves[element].Precio);
         totalTimeJail += parseInt(multas.Leves[element].Federal);
+    });
+
+    // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS MEDIAS
+    mediumPenalties.forEach(element => {
+        totalMoney += parseFloat(multas.Medias[element].Precio);
+        totalTimeJail += parseInt(multas.Medias[element].Federal);
+    });
+
+    // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS GRAVES
+    severePenalties.forEach(element => {
+        totalMoney += parseFloat(multas.Graves[element].Precio);
+        totalTimeJail += parseInt(multas.Graves[element].Federal);
     });
 
     total.innerHTML = '<div class="alert alert-success" role="alert">'+
@@ -311,6 +529,34 @@ function addSlightList(index) {
         '<div class="card-body"> ' +
         '<p class="card-text">' + multas.Leves[index].Descripcion + '<br/><br/>' +
         '<b> ' + multas.Leves[index].Precio + ' euros / ' + multas.Leves[index].Federal + ' meses en federal </b></p> ' +
+        '</div> ' +
+        '</div> ';
+}
+
+// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO MEDIO EN LA LISTA DE CÁLCULO
+function addMediumList(index) {
+    resultado.innerHTML +=
+        '<div class="card"> ' +
+        '<div class="card-header"> ' +
+        multas.Medias[index].Nombre +
+        '</div> ' +
+        '<div class="card-body"> ' +
+        '<p class="card-text">' + multas.Medias[index].Descripcion + '<br/><br/>' +
+        '<b> ' + multas.Medias[index].Precio + ' euros / ' + multas.Medias[index].Federal + ' meses en federal </b></p> ' +
+        '</div> ' +
+        '</div> ';
+}
+
+// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO GRAVE EN LA LISTA DE CÁLCULO
+function addSevereList(index) {
+    resultado.innerHTML +=
+        '<div class="card"> ' +
+        '<div class="card-header"> ' +
+        multas.Graves[index].Nombre +
+        '</div> ' +
+        '<div class="card-body"> ' +
+        '<p class="card-text">' + multas.Graves[index].Descripcion + '<br/><br/>' +
+        '<b> ' + multas.Graves[index].Precio + ' euros / ' + multas.Graves[index].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '</div> ';
 }
