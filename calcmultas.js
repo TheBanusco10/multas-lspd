@@ -552,6 +552,8 @@ function addSevereList(index) {
         '</div> ';
 }
 
+
+// MUESTRA EL TOTAL DE LA CONDENA
 function mostrarTotal(totalMoney, totalTimeJail) {
 
     console.log(total);
@@ -575,6 +577,7 @@ function mostrarTotal(totalMoney, totalTimeJail) {
 
 }
 
+// ATENUA LA MULTA TOTAL Y ACTUALIZA EL PÁRRAFO CON LA NUEVA CONDENA
 function atenuarMulta() {
 
     let cantidadAtenuada = totalMoney - (totalMoney * PORCENTAJEATENUAR);
