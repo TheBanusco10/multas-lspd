@@ -348,7 +348,9 @@ var multasGraves = document.getElementById("contenidoMultasGraves");
 // ------------------------------------------------------------
 
 var resultado = document.getElementById("resultado");
+ // PÁRRAFO DONDE VA LA CANTIDAD TOTAL DE LA MULTA
 var total = document.getElementById("parrafoTotal");
+var botonAtenuar = document.getElementById("botonAtenuar");
 
 var idMultas = 0; // VARIABLE PARA SABER QUÉ ID TIENE CADA MULTA
 
@@ -357,7 +359,11 @@ var slightPenalties = []; // ARRAY CON LAS MULTAS LEVES
 var mediumPenalties = []; // ARRAY CON LAS MULTAS MEDIAS
 var severePenalties = []; // ARRAY CON LAS MULTAS MEDIAS
 
-const TIMEJAILMINIMUM = 20;
+var totalMoney = 0 // DINERO TOTAL DE LAS MULTAS DEL SUJETO
+var totalTimeJail = 0; // TIEMPO TOTAL EN PRISIÓN/CÁRCEL QUE PASARÁ EL SUJETO
+
+const TIMEJAILMINIMUM = 20; // TIEMPO MÍNIMO PARA PASAR A FEDERAL
+const PORCENTAJEATENUAR = 0.15; // PORCENTAJE PARA ATENUAR MULTAS
 
 // MOSTRAMOS LAS MULTAS DE TRÁFICO
 for (var i = 0; i < multas.Trafico.length; i++) {
@@ -462,9 +468,6 @@ function addPenalty(comp) {
 
 function calcTotal() {
 
-    let totalMoney = 0,
-        totalTimeJail = 0;
-
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS DE TRÁFICO
     traficPenalties.forEach(element => {
         totalMoney += parseFloat(multas.Trafico[element].Precio);
@@ -489,19 +492,7 @@ function calcTotal() {
         totalTimeJail += parseInt(multas.Graves[element].Federal);
     });
 
-    total.innerHTML = '<div class="alert alert-success" role="alert">'+
-    '<h4 class="alert-heading">TOTAL</h4>' +
-    '<p id="parrafo"><b>' + totalMoney + ' euros / </b></p>' +
-    '<hr>' +
-    '<p>Sistema LSPD</p>' +
-  '</div>';
-
-    let parrafo = document.getElementById("parrafo");
-
-    if (totalTimeJail < TIMEJAILMINIMUM)
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en prisión </b>";
-    else
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";
+    mostrarTotal(totalMoney, totalTimeJail);
 
 }
 
@@ -559,4 +550,35 @@ function addSevereList(index) {
         '<b> ' + multas.Graves[index].Precio + ' euros / ' + multas.Graves[index].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '</div> ';
+}
+
+function mostrarTotal(totalMoney, totalTimeJail) {
+
+    console.log(total);
+    console.log(totalMoney);
+    console.log(totalTimeJail);
+
+    total.innerHTML = '<div class="alert alert-success" role="alert">'+
+    '<h4 class="alert-heading">TOTAL</h4>' +
+    '<p id="parrafo"><b>' + totalMoney + ' euros / </b></p>' +
+    '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
+    '<hr>' +
+    '<p>Sistema LSPD</p>' +
+  '</div>';
+
+    let parrafo = document.getElementById("parrafo");
+
+    if (totalTimeJail < TIMEJAILMINIMUM)
+        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en prisión </b>";
+    else
+        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";
+
+}
+
+function atenuarMulta() {
+
+    let cantidadAtenuada = totalMoney - (totalMoney * PORCENTAJEATENUAR);
+
+    mostrarTotal(cantidadAtenuada, totalTimeJail);
+    
 }
