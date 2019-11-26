@@ -127,7 +127,20 @@ body {
 * =============================
 */
 
-#calcularMultas button {
+/*#calcularMultas button {
+    width: 200px;
+
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+
+    border: none;
+    background-color: #2039CC;
+    border-radius: 4px;
+
+    color: white;
+}*/
+
+#botonAtenuar, #botonNoCoopera, #botonCalcularMultas {
     width: 200px;
 
     margin: 10px 0px 10px 0px;
@@ -144,6 +157,27 @@ body {
     background-color: rgb(26, 49, 175);
 }
 
+#total input {
+    margin-top: 10px;
+    width: 150px;
+    height: 35px;
+}
+
+#drogaBoton {
+    
+    width: 45px;
+    padding: 5px;
+    
+    line-height: 25px;
+    
+    margin-left: 5px;
+    
+    border: none;
+    background-color: #2039CC;
+    border-radius: 4px;
+
+    color: white;
+}
 /*
 * =============================
 */

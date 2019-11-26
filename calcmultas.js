@@ -40,7 +40,7 @@ var multas = {
             "Descripcion": "No respetar la prioridad de la derecha.",
             "Precio": "300",
             "Federal": "0"
-        }, 
+        },
         {
             "Nombre": "Estacionamiento indebido",
             "Descripcion": "Estacionamiento indebido.",
@@ -138,8 +138,7 @@ var multas = {
             "Federal": "5"
         },
     ],
-    "Leves": [
-        {
+    "Leves": [{
             "Nombre": "Insultar,gritar y/o faltar el respeto a un civil",
             "Descripcion": "Insultar,gritar y/o faltar el respeto a un civil",
             "Precio": "900",
@@ -182,8 +181,7 @@ var multas = {
             "Federal": "7"
         }
     ],
-    "Medias": [
-        {
+    "Medias": [{
             "Nombre": "Portar arma sin licencia",
             "Descripcion": "Portar arma sin licencia.",
             "Precio": "4200",
@@ -262,8 +260,7 @@ var multas = {
             "Federal": "15"
         }
     ],
-    "Graves": [
-        {
+    "Graves": [{
             "Nombre": "Fabricación o recolección de droga",
             "Descripcion": "Fabricación o recolección de droga.",
             "Precio": "11000",
@@ -348,7 +345,7 @@ var multasGraves = document.getElementById("contenidoMultasGraves");
 // ------------------------------------------------------------
 
 var resultado = document.getElementById("resultado");
- // PÁRRAFO DONDE VA LA CANTIDAD TOTAL DE LA MULTA
+// PÁRRAFO DONDE VA LA CANTIDAD TOTAL DE LA MULTA
 var total = document.getElementById("parrafoTotal");
 var botonAtenuar = document.getElementById("botonAtenuar");
 
@@ -363,7 +360,7 @@ var totalMoney = 0 // DINERO TOTAL DE LAS MULTAS DEL SUJETO
 var totalTimeJail = 0; // TIEMPO TOTAL EN PRISIÓN/CÁRCEL QUE PASARÁ EL SUJETO
 
 const TIMEJAILMINIMUM = 20; // TIEMPO MÍNIMO PARA PASAR A FEDERAL
-const PORCENTAJEATENUAR = 0.15; // PORCENTAJE PARA ATENUAR MULTAS
+const PORCENTAJEATENUAR = 0.40; // PORCENTAJE PARA ATENUAR MULTAS
 
 // MOSTRAMOS LAS MULTAS DE TRÁFICO
 for (var i = 0; i < multas.Trafico.length; i++) {
@@ -446,21 +443,21 @@ function addPenalty(comp) {
         id = comp.id;
         addTraficList(id);
         traficPenalties.push(id)
-    }else if (comp.name == "tipoLeve") {
+    } else if (comp.name == "tipoLeve") {
         id = comp.id;
         addSlightList(id);
         slightPenalties.push(id);
-    }else if (comp.name == "tipoMedia") {
+    } else if (comp.name == "tipoMedia") {
         id = comp.id;
         addMediumList(id);
         mediumPenalties.push(id);
-    }else {
+    } else {
         id = comp.id;
         addSevereList(id);
         severePenalties.push(id);
     }
-        
-    
+
+
 
     //----------------------------------------------------
 
@@ -560,13 +557,24 @@ function mostrarTotal(totalMoney, totalTimeJail) {
     console.log(totalMoney);
     console.log(totalTimeJail);
 
-    total.innerHTML = '<div class="alert alert-success" role="alert">'+
-    '<h4 class="alert-heading">TOTAL</h4>' +
-    '<p id="parrafo"><b>' + totalMoney + ' euros / </b></p>' +
-    '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
-    '<hr>' +
-    '<p>Sistema LSPD</p>' +
-  '</div>';
+    total.innerHTML = '<div id="total" class="alert alert-success" role="alert">' +
+        '<h4 class="alert-heading">TOTAL</h4>' +
+        '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / </b></p>' +
+        '<div class="row">' +
+            '<div class="col-sm-6">' +
+            '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
+            '</div>' +
+            '<div class="col-sm-6">' +
+            '<button id="botonNoCoopera" onclick="noCoopera()">No coopera</button>' +
+            '</div>' +
+        '</div>' +
+            '<div class="col-sm-12">' +
+            '<input id="drogaInput" type="number" placeholder="Cantidad droga">' +
+            '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
+            '</div>' +
+        '<hr>' +
+        '<p>Sistema LSPD</p>' +
+        '</div>';
 
     let parrafo = document.getElementById("parrafo");
 
@@ -579,9 +587,46 @@ function mostrarTotal(totalMoney, totalTimeJail) {
 
 // ATENUA LA MULTA TOTAL Y ACTUALIZA EL PÁRRAFO CON LA NUEVA CONDENA
 function atenuarMulta() {
-
-    let cantidadAtenuada = totalMoney - (totalMoney * PORCENTAJEATENUAR);
-
-    mostrarTotal(cantidadAtenuada, totalTimeJail);
     
+    if (totalMoney > 1) {
+        let cantidadAtenuada = totalMoney - (totalMoney * PORCENTAJEATENUAR);
+    
+        totalMoney = cantidadAtenuada;
+
+        mostrarTotal(totalMoney, totalTimeJail);
+    }
+
+}
+
+function noCoopera() {
+    totalMoney += 1000;
+    
+    mostrarTotal(totalMoney, totalTimeJail);
+}
+
+function calcularDroga() {
+    var cantidad = 0;
+    var diferencia = 0;
+    var drogaInput = Math.abs(document.getElementById("drogaInput").value);
+                
+    if (drogaInput >= 20) {
+                    
+        cantidad += 1500;
+                    
+        diferencia = drogaInput;
+                    
+        diferencia -= 20;
+          
+          
+                    
+        while(diferencia >= 20) {
+            
+            cantidad += 1000;
+            diferencia -= 20;
+        }
+        
+        totalMoney += cantidad;
+        mostrarTotal(totalMoney, totalTimeJail);
+    }
+                    
 }

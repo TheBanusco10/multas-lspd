@@ -1,0 +1,71 @@
+body {
+    background-color: #FAFAFA;
+}
+
+h2 {
+    padding: 10px;
+}
+
+#multasDisponibles,
+#calcularMultas {
+    text-align: center;
+}
+
+#multasDisponibles button {
+    border: none;
+    padding: 5px;
+    background-color: #080E33;
+    color: white;
+    border-radius: 4px;
+}
+
+#multasDisponibles button:hover {
+    background-color: rgb(16, 25, 95);
+}
+
+.multa {
+    width: 100%;
+}
+
+.multa button {
+    width: 200px;
+}
+
+.multa .card {
+    width: 100%;
+    margin: 10px;
+}
+
+.multa .card .card-header {
+    font-size: 25px;
+}
+
+#calcularMultas button {
+    width: 200px;
+    margin: 20px;
+    padding: 5px;
+    border: none;
+    background-color: #2039CC;
+    border-radius: 4px;
+    color: white;
+}
+
+#calcularMultas button:hover {
+    background-color: rgb(26, 49, 175);
+}
+
+.iconoSubir a {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: end;
+    text-decoration: none;
+}
+
+.iconoSubir a:hover {
+    text-decoration: none;
+}
+
+.iconoTienda,
+.iconoCalculadora {
+    margin-right: 5px;
+}
