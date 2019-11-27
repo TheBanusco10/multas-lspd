@@ -163,6 +163,10 @@ body {
     height: 35px;
 }
 
+#total p {
+    margin-top: 30px;
+}
+
 #drogaBoton {
     
     width: 45px;
