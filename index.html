@@ -95,6 +95,22 @@
 
   <!-----------MULTAS DISPONIBLES SECTION---------------->
 
+    <!-----------BUSCAR MULTAS SECTION---------------->
+
+    <section id="buscarMultasSeccion">
+      <div class="container-fluid">
+        <div class="row" id="buscarMultasDiv">
+          <h2 class="col-sm-12">Buscar multas</h2>
+          <div id="buscarDiv" class="col-sm-12">
+            <input id="buscarInput" type="text" placeholder="Buscar multa">
+            <button onclick="buscarMulta()"><span class="fas fa-search"></span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!----------------------------------------->
+
   <section id="multasDisponibles" class="container">
     <div class="multa row">
       <h2 class="col-lg-12 col-md-12 col-sm-12">Multas disponibles</h2>
@@ -204,6 +220,7 @@
   <script src="js/datos.js"></script>
   <script src="js/funciones.js"></script>
   <script src="js/calcmultas.js"></script>
+  <script src="js/buscarMultas.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

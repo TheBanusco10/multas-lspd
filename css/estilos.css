@@ -55,6 +55,70 @@ body {
 
 /*
 * =============================
+*   BUSCAR MULTAS SECTION
+* =============================
+*/
+
+#buscarMultasSeccion h2 {
+    font-size: 50px;
+    padding: 10px;
+    margin-top: 15px;
+    text-align: center;
+
+    color: #829FD9;
+    font-family: 'Bebas Neue', cursive;
+
+    background-color: rgb(44, 44, 44, .8);
+}
+
+#buscarMultasSeccion {
+    text-align: center;
+}
+
+#buscarMultasSeccion input {
+    margin: 10px 0px 10px auto;
+
+    padding: 5px;
+}
+
+#buscarMultasSeccion button {
+    border: none;
+    padding: 6px;
+
+    background-color: #080E33;
+    color: white;
+
+    border-radius: 4px;
+}
+
+#buscarMultasSeccion button:hover {
+    background-color: rgb(16, 25, 95);
+}
+
+#buscarMultasSeccion .card {
+    margin: 10px 0px 10px auto;
+}
+
+#buscarMultasSeccion .card button {
+    width: 200px;
+}
+
+#buscarMultasSeccion .card .card-header {
+    font-size: 25px;
+}
+
+#buscarMultasSeccion span {
+    width: 25px;
+}
+
+
+/*
+* =============================
+*/
+
+
+/*
+* =============================
 *   MULTAS DISPONIBLES SECTION
 * =============================
 */
