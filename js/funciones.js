@@ -124,7 +124,7 @@ function mostrarTotal(totalMoney, totalTimeJail) {
     total.innerHTML = '<div id="total" class="alert alert-success" role="alert">' +
         '<h4 class="alert-heading">TOTAL</h4>' +
         '<hr>' +
-        '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / </b></p>' +
+        '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / ' + totalTimeJail + ' meses ' + calcularEncarcelamiento(totalTimeJail) + '</b></p>' +
         '<div class="row">' +
             '<div class="col-sm-6">' +
             '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
@@ -141,30 +141,43 @@ function mostrarTotal(totalMoney, totalTimeJail) {
         '<p>Sistema LSPD</p>' +
         '</div>';
 
-    let parrafo = document.getElementById("parrafo");
+    parrafo = document.getElementById("parrafo");
+
+    /*console.log(parrafo);
 
     if (totalTimeJail < TIMEJAILMINIMUM)
         parrafo.innerHTML += " <b>" + totalTimeJail + " meses en prisión </b>";
     else
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";
+        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";*/
 
 }
 
 // ATENUA LA MULTA TOTAL Y ACTUALIZA EL PÁRRAFO CON LA NUEVA CONDENA
 function atenuarMulta() {
+
+    let cantidadAtenuadaFederal = 0;
+    let cantidadAtenuadaDinero;
     
-    if (totalMoney > 1) {
-        let cantidadAtenuadaDinero = totalMoney - (totalMoney * PORCENTAJEATENUAR);
+    if (totalMoney > 1 && !atenuado) {
+        cantidadAtenuadaDinero = totalMoney - (totalMoney * PORCENTAJEATENUAR);
         
         totalMoney = cantidadAtenuadaDinero;
 
         if (totalTimeJail > 1) {
-            let cantidadAtenuadaFederal = totalTimeJail - (totalTimeJail * PORCENTAJEATENUAR);
+            cantidadAtenuadaFederal = totalTimeJail - (totalTimeJail * PORCENTAJEATENUAR);
             totalTimeJail = cantidadAtenuadaFederal;
         }
 
-        mostrarTotal(totalMoney, totalTimeJail);
+        
+        //mostrarTotal(totalMoney, totalTimeJail);
+
+        parrafo.innerHTML += `<br><hr><p><b>ATENUADO: ${totalMoney.toFixed(2)} euros / ${cantidadAtenuadaFederal} meses ${calcularEncarcelamiento(cantidadAtenuadaFederal)}</b></p>`;
+
+        console.log("Parrafo nuevo de multa: " + parrafo);
+
     }
+
+    atenuado = true;
 
 }
 
@@ -198,4 +211,11 @@ function calcularDroga() {
         mostrarTotal(totalMoney, totalTimeJail);
     }
                     
+}
+
+function calcularEncarcelamiento(cantidadTiempo) {
+    if (cantidadTiempo < TIMEJAILMINIMUM)
+        return "en prisión";
+    else
+        return "en federal";
 }
