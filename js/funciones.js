@@ -182,6 +182,9 @@ function atenuarMulta() {
 }
 
 function noCoopera() {
+
+    atenuado = false;
+
     totalMoney += 1000;
     
     mostrarTotal(totalMoney, totalTimeJail);
