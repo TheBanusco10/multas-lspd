@@ -117,38 +117,27 @@ function addSevereList(index) {
 // MUESTRA EL TOTAL DE LA CONDENA
 function mostrarTotal(totalMoney, totalTimeJail) {
 
-    console.log(total);
-    console.log(totalMoney);
-    console.log(totalTimeJail);
-
     total.innerHTML = '<div id="total" class="alert alert-success" role="alert">' +
         '<h4 class="alert-heading">TOTAL</h4>' +
         '<hr>' +
         '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / ' + totalTimeJail + ' meses ' + calcularEncarcelamiento(totalTimeJail) + '</b></p>' +
         '<div class="row">' +
-            '<div class="col-sm-6">' +
-            '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
-            '</div>' +
-            '<div class="col-sm-6">' +
-            '<button id="botonNoCoopera" onclick="noCoopera()">No coopera</button>' +
-            '</div>' +
+        '<div class="col-sm-6">' +
+        '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
         '</div>' +
-            '<div class="col-sm-12">' +
-            '<input id="drogaInput" type="number" placeholder="Cantidad droga">' +
-            '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
-            '</div>' +
+        '<div class="col-sm-6">' +
+        '<button id="botonNoCoopera" onclick="noCoopera()">No coopera</button>' +
+        '</div>' +
+        '</div>' +
+        '<div class="col-sm-12">' +
+        '<input id="drogaInput" type="number" placeholder="Cantidad marihuana">' +
+        '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
+        '</div>' +
         '<hr>' +
         '<p>Sistema LSPD</p>' +
         '</div>';
 
     parrafo = document.getElementById("parrafo");
-
-    /*console.log(parrafo);
-
-    if (totalTimeJail < TIMEJAILMINIMUM)
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en prisión </b>";
-    else
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";*/
 
 }
 
@@ -157,10 +146,10 @@ function atenuarMulta() {
 
     let cantidadAtenuadaFederal = 0;
     let cantidadAtenuadaDinero;
-    
+
     if (totalMoney > 1 && !atenuado) {
         cantidadAtenuadaDinero = totalMoney - (totalMoney * PORCENTAJEATENUAR);
-        
+
         totalMoney = cantidadAtenuadaDinero;
 
         if (totalTimeJail > 1) {
@@ -168,12 +157,11 @@ function atenuarMulta() {
             totalTimeJail = cantidadAtenuadaFederal;
         }
 
-        
+
         //mostrarTotal(totalMoney, totalTimeJail);
 
         parrafo.innerHTML += `<br><hr><p><b>ATENUADO: ${totalMoney.toFixed(2)} euros / ${cantidadAtenuadaFederal} meses ${calcularEncarcelamiento(cantidadAtenuadaFederal)}</b></p>`;
 
-        console.log("Parrafo nuevo de multa: " + parrafo);
 
     }
 
@@ -185,35 +173,38 @@ function noCoopera() {
 
     atenuado = false;
 
-    totalMoney += 1000;
-    
+    totalMoney += 1200;
+
     mostrarTotal(totalMoney, totalTimeJail);
 }
 
 function calcularDroga() {
+
+    atenuado = false;
+
     let cantidad = 0;
     let diferencia = 0;
-    let dineroParaAdd = 1500;
+    let dineroParaAdd = 250;
     let drogaInput = Math.abs(document.getElementById("drogaInput").value);
-                
-    if (drogaInput >= 20) {
-                    
+
+    if (drogaInput >= UNIDADESDROGA) {
+
         cantidad += dineroParaAdd;
-                    
+
         diferencia = drogaInput;
-                    
-        diferencia -= 20;
-                    
-        while(diferencia >= 20) {
-            
-            cantidad += 1000;
-            diferencia -= 20;
+
+        diferencia -= UNIDADESDROGA;
+
+        while (diferencia >= UNIDADESDROGA) {
+
+            cantidad += dineroParaAdd;
+            diferencia -= UNIDADESDROGA;
         }
-        
+
         totalMoney += cantidad;
         mostrarTotal(totalMoney, totalTimeJail);
     }
-                    
+
 }
 
 function calcularEncarcelamiento(cantidadTiempo) {

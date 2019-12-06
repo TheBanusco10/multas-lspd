@@ -1,13 +1,28 @@
 @import url(header.css);
-
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-image: url(../imgs/coche-fondo.jpg);
+    /*background-image: url(../imgs/coche-fondo.jpg);*/
+    background: rgb(59, 59, 59);
 }
+
+h2 {
+    /*border-top: 2px solid #021859;
+    border-bottom: 2px solid #021859;*/
+    background: rgba(76, 76, 76, 1);
+    background: -moz-linear-gradient(left, rgba(76, 76, 76, 1) 0%, rgba(44, 44, 44, 1) 0%, rgba(89, 89, 89, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(71, 71, 71, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 41%, rgba(28, 28, 28, 1) 74%, rgba(43, 43, 43, 1) 99%, rgba(43, 43, 43, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(76, 76, 76, 1)), color-stop(0%, rgba(44, 44, 44, 1)), color-stop(0%, rgba(89, 89, 89, 1)), color-stop(0%, rgba(102, 102, 102, 1)), color-stop(0%, rgba(71, 71, 71, 1)), color-stop(0%, rgba(0, 0, 0, 1)), color-stop(41%, rgba(17, 17, 17, 1)), color-stop(74%, rgba(28, 28, 28, 1)), color-stop(99%, rgba(43, 43, 43, 1)), color-stop(100%, rgba(43, 43, 43, 1)));
+    background: -webkit-linear-gradient(left, rgba(76, 76, 76, 1) 0%, rgba(44, 44, 44, 1) 0%, rgba(89, 89, 89, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(71, 71, 71, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 41%, rgba(28, 28, 28, 1) 74%, rgba(43, 43, 43, 1) 99%, rgba(43, 43, 43, 1) 100%);
+    background: -o-linear-gradient(left, rgba(76, 76, 76, 1) 0%, rgba(44, 44, 44, 1) 0%, rgba(89, 89, 89, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(71, 71, 71, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 41%, rgba(28, 28, 28, 1) 74%, rgba(43, 43, 43, 1) 99%, rgba(43, 43, 43, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(76, 76, 76, 1) 0%, rgba(44, 44, 44, 1) 0%, rgba(89, 89, 89, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(71, 71, 71, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 41%, rgba(28, 28, 28, 1) 74%, rgba(43, 43, 43, 1) 99%, rgba(43, 43, 43, 1) 100%);
+    background: linear-gradient(to right, rgba(76, 76, 76, 1) 0%, rgba(44, 44, 44, 1) 0%, rgba(89, 89, 89, 1) 0%, rgba(102, 102, 102, 1) 0%, rgba(71, 71, 71, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 41%, rgba(28, 28, 28, 1) 74%, rgba(43, 43, 43, 1) 99%, rgba(43, 43, 43, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#2b2b2b', GradientType=1);
+    color: white;
+}
+
 
 /*
 * =============================
@@ -21,27 +36,22 @@ body {
     margin-top: 15px;
     margin-bottom: 15px;
     text-align: center;
-
-    color: #829FD9;
+    /*color: #829FD9;*/
     font-family: 'Bebas Neue', cursive;
-
-    background-color: rgb(44, 44, 44, .8);
+    /*background-color: rgb(44, 44, 44, .8);*/
 }
 
 #armasLegales h5 {
     text-align: center;
-
     font-size: 30px;
     font-family: 'Bebas Neue', cursive;
 }
 
 #armasLegales .card {
     margin: 0px 5px 10px 0px;
-
     width: 100%;
     height: 250px;
-
-    border: 1px solid rgba(0,0,0,.5);
+    border: 1px solid rgba(0, 0, 0, .5);
 }
 
 #armasLegales img {
@@ -49,9 +59,11 @@ body {
     height: 160px;
 }
 
+
 /*
 * =============================
 */
+
 
 /*
 * =============================
@@ -64,11 +76,7 @@ body {
     padding: 10px;
     margin-top: 15px;
     text-align: center;
-
-    color: #829FD9;
     font-family: 'Bebas Neue', cursive;
-
-    background-color: rgb(44, 44, 44, .8);
 }
 
 #buscarMultasSeccion {
@@ -77,17 +85,14 @@ body {
 
 #buscarMultasSeccion input {
     margin: 10px 0px 10px auto;
-
     padding: 5px;
 }
 
 #buscarMultasSeccion button {
     border: none;
     padding: 6px;
-
     background-color: #080E33;
     color: white;
-
     border-radius: 4px;
 }
 
@@ -123,34 +128,29 @@ body {
 * =============================
 */
 
-#multasDisponibles h2, #calcularMultas h2 {
+#multasDisponibles h2,
+#calcularMultas h2 {
     font-size: 50px;
     padding: 10px;
     margin-top: 15px;
     text-align: center;
-
-    color: #829FD9;
     font-family: 'Bebas Neue', cursive;
-
-    background-color: rgb(44, 44, 44, .8);
-    border-radius: 5px;
 }
 
 #contenido {
     width: 100%;
 }
 
-#multasDisponibles, #calcularMultas {
+#multasDisponibles,
+#calcularMultas {
     text-align: center;
 }
 
 #multasDisponibles button {
     border: none;
     padding: 5px;
-
     background-color: #080E33;
     color: white;
-
     border-radius: 4px;
 }
 
@@ -160,36 +160,34 @@ body {
 
 .btn {
     width: 200px;
-
     margin-top: 10px;
 }
 
-.multa {
-    width: 100%;
-}
-
-.multa button {
+#multasDisponibles button {
     width: 200px;
 }
 
-.multa .card {
-    width: auto;
+.card {
     margin: 5px;
+    width: auto;
 }
 
-.multa .card .card-header {
+.card .card-header {
     font-size: 25px;
 }
+
 
 /*
 * =============================
 */
+
 
 /*
 * =============================
 *   CALCULAR MULTAS SECTION
 * =============================
 */
+
 
 /*#calcularMultas button {
     width: 200px;
@@ -204,16 +202,15 @@ body {
     color: white;
 }*/
 
-#botonAtenuar, #botonNoCoopera, #botonCalcularMultas {
+#botonAtenuar,
+#botonNoCoopera,
+#botonCalcularMultas {
     width: 200px;
-
     margin: 10px 0px 10px 0px;
     padding: 5px;
-
     border: none;
     background-color: #2039CC;
     border-radius: 4px;
-
     color: white;
 }
 
@@ -221,9 +218,10 @@ body {
     background-color: rgb(26, 49, 175);
 }
 
-#total input {
+#drogaInput {
     margin-top: 10px;
-    width: 150px;
+    width: 180px;
+    padding: 5px;
     height: 35px;
 }
 
@@ -232,23 +230,21 @@ body {
 }
 
 #drogaBoton {
-    
     width: 45px;
     padding: 5px;
-    
     line-height: 25px;
-    
     margin-left: 5px;
-    
     border: none;
     background-color: #2039CC;
     border-radius: 4px;
-
     color: white;
 }
+
+
 /*
 * =============================
 */
+
 
 /*
 * =============================

@@ -9,7 +9,7 @@ var multasGraves = document.getElementById("contenidoMultasGraves");
 
 var resultado = document.getElementById("resultado"); // DIV DONDE SE MUESTRAN LAS MULTAS A CALCULAR
 var parrafo; // PÁRRAFO DONDE VA LA CANTIDAD TOTAL DE LA MULTA
-var total = document.getElementById("parrafoTotal"); 
+var total = document.getElementById("parrafoTotal");
 var botonAtenuar = document.getElementById("botonAtenuar");
 
 var idMultas = 0; // VARIABLE PARA SABER QUÉ ID TIENE CADA MULTA
@@ -25,7 +25,7 @@ var atenuado = false; // VARIABLE PARA PODER UTILIZAR EL BOTOÓN DE ATENUAR SOLO
 
 const TIMEJAILMINIMUM = 20; // TIEMPO MÍNIMO PARA PASAR A FEDERAL
 const PORCENTAJEATENUAR = 0.30; // PORCENTAJE PARA ATENUAR MULTAS
-const UNIDADESDROGA = 20; // CANTIDAD DE DROGA POR LA QUE AÑADIR DINERO AL TOTAL
+const UNIDADESDROGA = 10; // CANTIDAD DE DROGA POR LA QUE AÑADIR DINERO AL TOTAL
 
 // MOSTRAMOS LAS MULTAS DE TRÁFICO
 for (var i = 0; i < multas.Trafico.length; i++) {

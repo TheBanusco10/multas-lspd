@@ -1,4 +1,7 @@
 @import url(header.css);
+* {
+    padding: 0;
+}
 
 iframe {
     width: 100%;

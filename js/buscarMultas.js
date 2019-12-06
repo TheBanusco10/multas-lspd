@@ -15,7 +15,7 @@ function buscarMulta() {
     for (let i = 0; i < multas.Trafico.length; i++) {
       
       if (multas.Trafico[i].Nombre.toLowerCase().includes(resultado)) {
-        resultadoBusqueda.innerHTML +='<div class="card col-sm-12"> ' +
+        resultadoBusqueda.innerHTML +='<div class="card"> ' +
         '<div class="card-header"> ' +
         multas.Trafico[i].Nombre +
         '</div> ' +
@@ -34,7 +34,7 @@ function buscarMulta() {
     for (var i = 0; i < multas.Leves.length; i++) {
       
       if (multas.Leves[i].Nombre.toLowerCase().includes(resultado)) {
-        resultadoBusqueda.innerHTML +='<div class="card col-sm-12"> ' +
+        resultadoBusqueda.innerHTML +='<div class="card"> ' +
         '<div class="card-header"> ' +
         multas.Leves[i].Nombre +
         '</div> ' +
@@ -53,7 +53,7 @@ function buscarMulta() {
   for (var i = 0; i < multas.Medias.length; i++) {
       
     if (multas.Medias[i].Nombre.toLowerCase().includes(resultado)) {
-      resultadoBusqueda.innerHTML += '<div class="card col-sm-12"> ' +
+      resultadoBusqueda.innerHTML += '<div class="card"> ' +
       '<div class="card-header"> ' +
       multas.Medias[i].Nombre +
       '</div> ' +
@@ -72,7 +72,7 @@ function buscarMulta() {
   for (var i = 0; i < multas.Graves.length; i++) {
       
     if (multas.Graves[i].Nombre.toLowerCase().includes(resultado)) {
-      resultadoBusqueda.innerHTML += '<div class="card col-sm-12"> ' +
+      resultadoBusqueda.innerHTML += '<div class="card"> ' +
       '<div class="card-header"> ' +
       multas.Graves[i].Nombre +
       '</div> ' +
