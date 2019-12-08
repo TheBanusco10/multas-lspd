@@ -130,7 +130,7 @@ function mostrarTotal(totalMoney, totalTimeJail) {
         '</div>' +
         '</div>' +
         '<div class="col-sm-12">' +
-        '<input id="drogaInput" type="number" placeholder="Cantidad marihuana">' +
+        '<input id="drogaInput" type="number" placeholder="Marihuana/Piezas armas">' +
         '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
         '</div>' +
         '<hr>' +

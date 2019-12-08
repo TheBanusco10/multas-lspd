@@ -119,12 +119,6 @@ var multas = {
             "Precio": "3800",
             "Federal": "0"
         },
-        {
-            "Nombre": "Intento de fuga",
-            "Descripcion": "Intento de fuga",
-            "Precio": "4500",
-            "Federal": "5"
-        },
     ],
     "Leves": [{
             "Nombre": "Insultar,gritar y/o faltar el respeto a un civil",
@@ -151,10 +145,16 @@ var multas = {
             "Federal": "0"
         },
         {
-            "Nombre": "Amenaza verbal o intimidación a los civiles",
+            "Nombre": "Amenaza verbal o intimidación a un civil",
             "Descripcion": "Amenaza verbal o intimidación a los civiles",
             "Precio": "3700",
             "Federal": "0"
+        },
+        {
+            "Nombre": "Intento de fuga",
+            "Descripcion": "Intento de fuga",
+            "Precio": "4500",
+            "Federal": "5"
         },
         {
             "Nombre": "Amenaza verbal o intimidación a los agentes / EMS",
@@ -291,6 +291,12 @@ var multas = {
             "Federal": "20"
         },
         {
+            "Nombre": "Intento de homicidio a un policia / EMS",
+            "Descripcion": "Intento de homicidio a un policia / EMS.",
+            "Precio": "25000",
+            "Federal": "24"
+        },
+        {
             "Nombre": "Venta ilegal de marihuana",
             "Descripcion": "Venta ilegal de marihuana.",
             "Precio": "25000",
@@ -309,10 +315,16 @@ var multas = {
             "Federal": "30"
         },
         {
+            "Nombre": "Robo de Banco",
+            "Descripcion": "Robo de Banco.",
+            "Precio": "27000",
+            "Federal": "35"
+        },
+        {
             "Nombre": "Robo de Banco central",
             "Descripcion": "Robo de Banco central.",
-            "Precio": "27000",
-            "Federal": "30"
+            "Precio": "35000",
+            "Federal": "40"
         },
         {
             "Nombre": "Secuestro de un Agente / EMS",

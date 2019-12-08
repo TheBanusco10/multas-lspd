@@ -225,6 +225,10 @@ h2 {
     height: 35px;
 }
 
+#drogaInput::placeholder {
+    font-size: 13px;
+}
+
 #total p {
     margin-top: 30px;
 }
