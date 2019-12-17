@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url(../imgs/coche-fondo.jpg);
+    background: rgb(235, 235, 235);
 }
 
 /*
@@ -59,36 +59,29 @@ body {
 * =============================
 */
 
-#buscarMultasSeccion h2 {
-    font-size: 50px;
-    padding: 10px;
-    margin-top: 15px;
-    text-align: center;
-
-    color: #829FD9;
-    font-family: 'Bebas Neue', cursive;
-
-    background-color: rgb(44, 44, 44, .8);
-}
-
 #buscarMultasSeccion {
     text-align: center;
 }
 
 #buscarMultasSeccion input {
-    margin: 10px 0px 10px auto;
+    margin: 10px 0px 20px auto;
+    
+    width: 90%;
 
-    padding: 5px;
+    border-radius: 50px;
+    border: none;
+
+    padding: 10px;
 }
 
 #buscarMultasSeccion button {
     border: none;
-    padding: 6px;
+    padding: 8px;
 
     background-color: #080E33;
     color: white;
 
-    border-radius: 4px;
+    border-radius: 50px;
 }
 
 #buscarMultasSeccion button:hover {
@@ -111,6 +104,10 @@ body {
     width: 25px;
 }
 
+#contenidoMultasBuscadas .card {
+    padding: 0;
+}
+
 
 /*
 * =============================
@@ -123,30 +120,29 @@ body {
 * =============================
 */
 
-#multasDisponibles h2, #calcularMultas h2 {
-    font-size: 50px;
-    padding: 10px;
-    margin-top: 15px;
-    text-align: center;
-
-    color: #829FD9;
-    font-family: 'Bebas Neue', cursive;
-
-    background-color: rgb(44, 44, 44, .8);
-    border-radius: 5px;
-}
-
-#contenido {
-    width: 100%;
+#multas {
+    height: 500px;
+    overflow: scroll;
 }
 
 #multasDisponibles, #calcularMultas {
     text-align: center;
 }
 
+#multasDisponibles a {
+    width: 150px;
+}
+
+#multasDisponibles h3 {
+    color: #829FD9;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3em;
+}
+
 #multasDisponibles button {
     border: none;
     padding: 5px;
+    width: 200px;
 
     background-color: #080E33;
     color: white;
@@ -164,20 +160,12 @@ body {
     margin-top: 10px;
 }
 
-.multa {
-    width: 100%;
-}
-
-.multa button {
-    width: 200px;
-}
-
-.multa .card {
+.card {
     width: auto;
     margin: 5px;
 }
 
-.multa .card .card-header {
+.card .card-header {
     font-size: 25px;
 }
 
@@ -204,7 +192,29 @@ body {
     color: white;
 }*/
 
-#botonAtenuar, #botonNoCoopera, #botonCalcularMultas {
+/*#botonAtenuar, #botonNoCoopera, #botonCalcularMultas {
+    width: 200px;
+
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
+
+    border: none;
+    background-color: #2039CC;
+    border-radius: 4px;
+
+    color: white;
+}*/
+
+#botonAtenuar, #botonNoCoopera {
+    width: auto;
+    border-radius: 50%;
+}
+
+#botonAtenuar i, #botonNoCoopera i {
+    vertical-align: middle;
+}
+
+#botonCalcularMultas {
     width: 200px;
 
     margin: 10px 0px 10px 0px;
@@ -217,7 +227,19 @@ body {
     color: white;
 }
 
-#calcularMultas button:hover {
+#calcularMultas h2 {
+    
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3em;
+
+    margin-top: 25px;
+}
+
+#calcularMultas .card .card-header {
+    font-size: 1em;
+}
+
+#botonCalcularMultas:hover {
     background-color: rgb(26, 49, 175);
 }
 
@@ -231,9 +253,15 @@ body {
     margin-top: 30px;
 }
 
+#parrafoTotal {
+    margin-top: -80%;
+    max-height: 500px;
+    overflow: scroll;
+}
+
 #drogaBoton {
     
-    width: 45px;
+    width: 40px;
     padding: 5px;
     
     line-height: 25px;
@@ -245,6 +273,22 @@ body {
     border-radius: 4px;
 
     color: white;
+}
+
+#drogaInput {
+    max-width: 100px;
+}
+
+#total .multasParrafoTotal {
+    font-size: 1.2em;
+    text-align: left;
+    margin-top: -7px;
+}
+
+#resultado {
+    height: auto;
+    max-height: 150px;
+    overflow: scroll;
 }
 /*
 * =============================
@@ -259,4 +303,36 @@ body {
 .iconoTienda,
 .iconoCalculadora {
     margin-right: 5px;
+}
+
+
+/*
+* =============================
+*   MEDIAQUERIES
+* =============================
+*/
+
+
+@media (min-width: 1200px) {
+    #parrafoTotal {
+        margin-top: -70%;
+        max-height: 500px;
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 992px and max-width: 1999) {
+    #parrafoTotal {
+        margin-top: -90%;
+        max-height: 500px;
+        overflow: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    #parrafoTotal {
+        margin-top: -110%;
+        max-height: 500px;
+        overflow: scroll;
+    }
 }

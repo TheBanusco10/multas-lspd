@@ -1,9 +1,10 @@
 // MULTAS -------------------------------------------------------------
 
-var multasTrafico = document.getElementById("contenidoMultasTrafico");
-var multasLeves = document.getElementById("contenidoMultasLeves");
+//var multasTrafico = document.getElementById("contenidoMultasTrafico");
+let mostrarMultas = document.getElementById("multas");
+/*var multasLeves = document.getElementById("contenidoMultasLeves");
 var multasMedias = document.getElementById("contenidoMultasMedias");
-var multasGraves = document.getElementById("contenidoMultasGraves");
+var multasGraves = document.getElementById("contenidoMultasGraves");*/
 
 // ------------------------------------------------------------
 
@@ -28,14 +29,15 @@ const PORCENTAJEATENUAR = 0.30; // PORCENTAJE PARA ATENUAR MULTAS
 const UNIDADESDROGA = 20; // CANTIDAD DE DROGA POR LA QUE AÑADIR DINERO AL TOTAL
 
 // MOSTRAMOS LAS MULTAS DE TRÁFICO
+mostrarMultas.innerHTML += '<h3 id="multasTráficoh3">Multas tráfico</h3>'
 for (var i = 0; i < multas.Trafico.length; i++) {
-    multasTrafico.innerHTML +=
+    mostrarMultas.innerHTML +=
         '<div class="card"> ' +
         '<div class="card-header"> ' +
         multas.Trafico[i].Nombre +
         '</div> ' +
         '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Trafico[i].Descripcion + '<br/><br/>' +
+        '<p class="card-text">' +
         '<b> ' + multas.Trafico[i].Precio + ' euros / ' + multas.Trafico[i].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '<div class="card-footer"> ' +
@@ -46,8 +48,9 @@ for (var i = 0; i < multas.Trafico.length; i++) {
 //-------------------------------------------------------
 
 // MOSTRAMOS LAS MULTAS LEVES
+mostrarMultas.innerHTML += '<h3 id="multasLevesh3">Multas leves</h3>'
 for (var i = 0; i < multas.Leves.length; i++) {
-    multasLeves.innerHTML +=
+    mostrarMultas.innerHTML +=
         '<div class="card"> ' +
         '<div class="card-header"> ' +
         multas.Leves[i].Nombre +
@@ -64,8 +67,9 @@ for (var i = 0; i < multas.Leves.length; i++) {
 //---------------------------------------------------------------
 
 // MOSTRAMOS LAS MULTAS MEDIAS
+mostrarMultas.innerHTML += '<h3 id="multasMediash3">Multas medias</h3>'
 for (var i = 0; i < multas.Medias.length; i++) {
-    multasMedias.innerHTML +=
+    mostrarMultas.innerHTML +=
         '<div class="card"> ' +
         '<div class="card-header"> ' +
         multas.Medias[i].Nombre +
@@ -82,8 +86,9 @@ for (var i = 0; i < multas.Medias.length; i++) {
 //---------------------------------------------------------------
 
 // MOSTRAMOS LAS MULTAS GRAVES
+mostrarMultas.innerHTML += '<h3 id="multasGravesh3">Multas graves</h3>'
 for (var i = 0; i < multas.Graves.length; i++) {
-    multasGraves.innerHTML +=
+    mostrarMultas.innerHTML +=
         '<div class="card"> ' +
         '<div class="card-header"> ' +
         multas.Graves[i].Nombre +

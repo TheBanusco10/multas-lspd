@@ -21,198 +21,194 @@
 
   <!-----------HEADER SECTION---------------->
 
-  <header class="container-fluid">
+  <header id="header" class="container-fluid">
     <nav class="row mx-auto">
       <ul>
         <li><a href="index.html">Multas</a></li>
         <li><a href="jurisdiccion.html">Jurisdicción</a></li>
         <li><a href="normativa.html">Normativa</a></li>
+        <li><a href="" data-toggle="modal" data-target="#modelArmasLegales">Armas legales</a></li>
       </ul>
     </nav>
   </header>
 
   <!----------------------------------------->
 
-  <!-----------ARMAS LEGALES SECTION---------------->
 
-  <section id="armasLegales" class="container-fluid">
-    <div class="row">
-      <h2 class="col-lg-12 col-md-12 col-sm-12">Armas legales</h2>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="imgs/bate-beisbol.png" class="card-img-top" alt="">
-            <h5 class="card-title">Bate de beisbol</h5>
+  <!-----------ARMAS LEGALES SECTION-------------->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modelArmasLegales" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">ARMAS LEGALES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <img src="imgs/bate-beisbol.png" class="card-img-top" alt="">
+                  <h5 class="card-title">Bate de beisbol</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <img src="imgs/linterna.png" class="card-img-top" alt="">
+                  <h5 class="card-title">Linterna</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <img src="imgs/navaja.png" class="card-img-top" alt="">
+                  <h5 class="card-title">Navaja</h5>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="imgs/linterna.png" class="card-img-top" alt="">
-            <h5 class="card-title">Linterna</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="imgs/navaja.png" class="card-img-top" alt="">
-            <h5 class="card-title">Navaja</h5>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <img src="imgs/machete.png" class="card-img-top" alt="">
+                  <h5 class="card-title">Machete</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <img src="imgs/pistola.png" class="card-img-top" alt="">
+                  <h5 class="card-title">Pistola / Pistola 9MM</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body">
+                  <img src="imgs/Escopeta-recortada.png" class="card-img-top" alt="">
+                  <h5 class="card-title">Escopeta recortada</h5>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="imgs/machete.png" class="card-img-top" alt="">
-            <h5 class="card-title">Machete</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="imgs/pistola.png" class="card-img-top" alt="">
-            <h5 class="card-title">Pistola 9MM</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <img src="imgs/Escopeta-recortada.png" class="card-img-top" alt="">
-            <h5 class="card-title">Escopeta recortada</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
-  <!----------------------------------------->
+  <!------------------------------------->
 
-  <!-----------MULTAS DISPONIBLES SECTION---------------->
 
-    <!-----------BUSCAR MULTAS SECTION---------------->
+  <!-----------BUSCAR MULTAS SECTION---------------->
 
     <section id="buscarMultasSeccion">
       <div class="container-fluid">
         <div class="row" id="buscarMultasDiv">
-          <h2 class="col-sm-12">Buscar multas</h2>
           <div id="buscarDiv" class="col-sm-12">
-            <input id="buscarInput" type="text" placeholder="Buscar multa">
-            <button onclick="buscarMulta()"><span class="fas fa-search"></span></button>
+            <input id="buscarInput" type="text" placeholder="Buscar multa" onkeypress="buscarMulta(event)">
           </div>
         </div>
       </div>
     </section>
   
+  <!----------------------------------------->
+
+  <!-----------MULTAS DISPONIBLES SECTION---------------->
+
+  <section id="multasDisponibles" class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <div id="multas">
+
+        </div>
+      </div>
+      <div class="col-md-5">
+        <!--MULTAS DE TRÁFICO-->
+        <div class="row">
+          <p class="col-md-6">
+            <a class="btn btn-primary" href="#multasTráficoh3" role="button" aria-expanded="false">
+              Multas de tráfico
+            </a>
+          </p>
+    
+          <!----------------------------------------------------------->
+    
+          <!--MULTAS LEVES-->
+    
+          <p class="col-md-6">
+            <a class="btn btn-primary" href="#multasLevesh3" role="button" aria-expanded="false">
+              Multas leves
+            </a>
+          </p>
+        </div>
+        
+  
+        <!----------------------------------------------------------->
+  
+        <!--MULTAS MEDIAS-->
+        
+        <div class="row">
+          <p class="col-md-6">
+            <a class="btn btn-primary" href="#multasMediash3" role="button" aria-expanded="false">
+              Multas medias
+            </a>
+          </p>
+    
+          <!----------------------------------------------------------->
+    
+          <!--MULTAS GRAVES-->
+    
+          <p class="col-md-6">
+            <a class="btn btn-primary" href="#multasGravesh3" role="button" aria-expanded="false">
+              Multas graves
+            </a>
+          </p>
+        </div>
+
+        
+        <!----------------------------------------------------------->
+  
+      </div>
+    </div>
+      
+    </section>
+  
     <!----------------------------------------->
-
-  <section id="multasDisponibles" class="container">
-    <div class="multa row">
-      <h2 class="col-lg-12 col-md-12 col-sm-12">Multas disponibles</h2>
-
-      <!--MULTAS DE TRÁFICO-->
-
-      <p class="col-lg-12">
-        <a class="btn btn-primary" data-toggle="collapse" href="#multasTrafico" role="button" aria-expanded="false"
-          aria-controls="collapseExample">
-          Multas de tráfico
-        </a>
-      </p>
-
-      <div class="collapse col-lg-12" id="multasTrafico">
-        <div class="card card-body" id="contenidoMultasTrafico">
-
+  
+    <!-----------CALCULAR MULTAS SECTION---------------->
+  
+    <section id="calcularMultas" class="container-fluid">
+      <div class="multa row">
+        <div class="col-md-7">
         </div>
+        <div class="col-md-5">
+          <p id="parrafoTotal"></p>
+        </div>
+        
       </div>
 
-      <!----------------------------------------------------------->
-
-      <!--MULTAS LEVES-->
-
-      <p class="col-lg-12">
-        <a class="btn btn-primary" data-toggle="collapse" href="#multasLeves" role="button" aria-expanded="false"
-          aria-controls="collapseExample">
-          Multas leves
-        </a>
-      </p>
-
-      <div class="collapse col-lg-12" id="multasLeves">
-        <div class="card card-body" id="contenidoMultasLeves">
-
-        </div>
-      </div>
-
-      <!----------------------------------------------------------->
-
-      <!--MULTAS MEDIAS-->
-
-      <p class="col-lg-12">
-        <a class="btn btn-primary" data-toggle="collapse" href="#multasMedias" role="button" aria-expanded="false"
-          aria-controls="collapseExample">
-          Multas medias
-        </a>
-      </p>
-
-      <div class="collapse col-lg-12" id="multasMedias">
-        <div class="card card-body" id="contenidoMultasMedias">
-
-        </div>
-      </div>
-
-      <!----------------------------------------------------------->
-
-      <!--MULTAS GRAVES-->
-
-      <p class="col-lg-12">
-        <a class="btn btn-primary" data-toggle="collapse" href="#multasGraves" role="button" aria-expanded="false"
-          aria-controls="collapseExample">
-          Multas graves
-        </a>
-      </p>
-
-      <div class="collapse col-lg-12" id="multasGraves">
-        <div class="card card-body" id="contenidoMultasGraves">
-
-        </div>
-      </div>
-
-      <!----------------------------------------------------------->
-
-    </div>
-  </section>
+    </section>
 
   <!----------------------------------------->
 
-  <!-----------CALCULAR MULTAS SECTION---------------->
 
-  <section id="calcularMultas" class="container">
-    <div class="multa row">
-      <h2 class="col-lg-12 col-md-12 col-sm-12">Multas a calcular</h2>
-      <div id="resultado" class="col-lg-12"></div>
-
-      <div class="col-md-12 col-lg-12">
-        <button class="boton" id="botonCalcularMultas" onclick="calcTotal()"><span
-            class="fas fa-calculator iconoCalculadora"></span>Calcular</button>
-        <p id="parrafoTotal"></p>
-      </div>
-    </div>
-
-  </section>
-
-  <!----------------------------------------->
-
-  <!--BOTONES PARA SUBIR Y BAJAR RÁPIDAMENTE EN LA PÁGINA-->
+  <!--BOTONES PARA SUBIR Y BAJAR RÁPIDAMENTE EN LA PÁGINA
   <div class="iconoSubir">
-    <a href="#multasDisponibles" class="fas fa-arrow-up"></a>
+    <a href="#header" class="fas fa-arrow-up"></a>
   </div>
   <div class="iconoBajar">
     <a href="#botonCalcularMultas" class="fas fa-arrow-down"></a>
   </div>
+  -->
 
 
 

@@ -5,20 +5,20 @@ function addPenalty(comp) {
 
     if (comp.name == "tipoTrafico") {
         id = comp.id;
-        addTraficList(id);
         traficPenalties.push(id)
+        addTraficList();
     } else if (comp.name == "tipoLeve") {
         id = comp.id;
-        addSlightList(id);
         slightPenalties.push(id);
+        addSlightList();
     } else if (comp.name == "tipoMedia") {
         id = comp.id;
-        addMediumList(id);
         mediumPenalties.push(id);
+        addMediumList();
     } else {
         id = comp.id;
-        addSevereList(id);
         severePenalties.push(id);
+        addSevereList();
     }
 
 
@@ -59,96 +59,48 @@ function calcTotal() {
 
 // FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO TRÁFICO EN LA LISTA DE CÁLCULO
 function addTraficList(index) {
-    resultado.innerHTML +=
-        '<div class="card"> ' +
-        '<div class="card-header"> ' +
-        multas.Trafico[index].Nombre +
-        '</div> ' +
-        '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Trafico[index].Descripcion + '<br/><br/>' +
-        '<b> ' + multas.Trafico[index].Precio + ' euros / ' + multas.Trafico[index].Federal + ' meses en federal </b></p> ' +
-        '</div> ' +
-        '</div> ';
+    prepararTotal();
 }
 
 // FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO LEVE EN LA LISTA DE CÁLCULO
 function addSlightList(index) {
-    resultado.innerHTML +=
-        '<div class="card"> ' +
-        '<div class="card-header"> ' +
-        multas.Leves[index].Nombre +
-        '</div> ' +
-        '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Leves[index].Descripcion + '<br/><br/>' +
-        '<b> ' + multas.Leves[index].Precio + ' euros / ' + multas.Leves[index].Federal + ' meses en federal </b></p> ' +
-        '</div> ' +
-        '</div> ';
+    prepararTotal();
 }
 
 // FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO MEDIO EN LA LISTA DE CÁLCULO
 function addMediumList(index) {
-    resultado.innerHTML +=
-        '<div class="card"> ' +
-        '<div class="card-header"> ' +
-        multas.Medias[index].Nombre +
-        '</div> ' +
-        '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Medias[index].Descripcion + '<br/><br/>' +
-        '<b> ' + multas.Medias[index].Precio + ' euros / ' + multas.Medias[index].Federal + ' meses en federal </b></p> ' +
-        '</div> ' +
-        '</div> ';
+    prepararTotal();
 }
 
 // FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO GRAVE EN LA LISTA DE CÁLCULO
 function addSevereList(index) {
-    resultado.innerHTML +=
-        '<div class="card"> ' +
-        '<div class="card-header"> ' +
-        multas.Graves[index].Nombre +
-        '</div> ' +
-        '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Graves[index].Descripcion + '<br/><br/>' +
-        '<b> ' + multas.Graves[index].Precio + ' euros / ' + multas.Graves[index].Federal + ' meses en federal </b></p> ' +
-        '</div> ' +
-        '</div> ';
+    prepararTotal();
 }
 
 
 // MUESTRA EL TOTAL DE LA CONDENA
 function mostrarTotal(totalMoney, totalTimeJail) {
 
-    console.log(total);
-    console.log(totalMoney);
-    console.log(totalTimeJail);
+    let nuevoParrafo = document.getElementById("total");
 
-    total.innerHTML = '<div id="total" class="alert alert-success" role="alert">' +
-        '<h4 class="alert-heading">TOTAL</h4>' +
-        '<hr>' +
-        '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / ' + totalTimeJail + ' meses ' + calcularEncarcelamiento(totalTimeJail) + '</b></p>' +
-        '<div class="row">' +
-            '<div class="col-sm-6">' +
-            '<button id="botonAtenuar" onclick="atenuarMulta()">Atenuar total</button>' +
-            '</div>' +
-            '<div class="col-sm-6">' +
-            '<button id="botonNoCoopera" onclick="noCoopera()">No coopera</button>' +
-            '</div>' +
+    nuevoParrafo.innerHTML += 
+    '<h4 class="alert-heading">TOTAL</h4>' +
+    '<hr>' +
+    '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / ' + totalTimeJail + ' meses ' + calcularEncarcelamiento(totalTimeJail) + '</b></p>' +
+    '<div class="row">' +
+        '<div class="col-sm-2">' +
+        '<button id="botonAtenuar" class="btn btn-primary" onclick="atenuarMulta()"><i class="fas fa-angle-double-down"></i></button>' +
         '</div>' +
-            '<div class="col-sm-12">' +
-            '<input id="drogaInput" type="number" placeholder="Cantidad droga">' +
-            '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
-            '</div>' +
-        '<hr>' +
-        '<p>Sistema LSPD</p>' +
-        '</div>';
-
-    parrafo = document.getElementById("parrafo");
-
-    /*console.log(parrafo);
-
-    if (totalTimeJail < TIMEJAILMINIMUM)
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en prisión </b>";
-    else
-        parrafo.innerHTML += " <b>" + totalTimeJail + " meses en federal </b>";*/
+        '<div class="col-sm-2">' +
+        '<button id="botonNoCoopera" class="btn btn-danger" onclick="noCoopera()"><i class="fas fa-angle-double-up"></i></button>' +
+        '</div>' +
+        '<div class="col-sm-8">' +
+        '<input id="drogaInput" type="number" placeholder="M / PP.AA">' +
+        '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
+        '</div>' +
+    '</div>' +
+    '<hr>' +
+    '<p>Sistema LSPD</p>';
 
 }
 
@@ -170,10 +122,8 @@ function atenuarMulta() {
 
         
         //mostrarTotal(totalMoney, totalTimeJail);
-
-        parrafo.innerHTML += `<br><hr><p><b>ATENUADO: ${totalMoney.toFixed(2)} euros / ${cantidadAtenuadaFederal} meses ${calcularEncarcelamiento(cantidadAtenuadaFederal)}</b></p>`;
-
-        console.log("Parrafo nuevo de multa: " + parrafo);
+        parrafo = document.getElementById("parrafo");
+        parrafo.innerHTML += `<br><hr><p><b>ATENUADO: ${totalMoney.toFixed(2)} euros / ${cantidadAtenuadaFederal.toFixed(2)} meses ${calcularEncarcelamiento(cantidadAtenuadaFederal)}</b></p>`;
 
     }
 
@@ -187,6 +137,7 @@ function noCoopera() {
 
     totalMoney += 1000;
     
+    prepararTotal();
     mostrarTotal(totalMoney, totalTimeJail);
 }
 
@@ -221,4 +172,28 @@ function calcularEncarcelamiento(cantidadTiempo) {
         return "en prisión";
     else
         return "en federal";
+}
+
+function prepararTotal() {
+    total.innerHTML = `<div id="total" class="alert alert-success" role="alert"></div>`;
+    
+    let nuevoParrafo = document.getElementById("total");
+
+    traficPenalties.forEach(element => {
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Trafico[element].Nombre}</p>`;
+    });
+
+    slightPenalties.forEach(element => {
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Leves[element].Nombre}</p>`;
+    });
+
+    mediumPenalties.forEach(element => {
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Medias[element].Nombre}</p>`;
+    });
+
+    severePenalties.forEach(element => {
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Graves[element].Nombre}</p>`;
+    });
+    
+    nuevoParrafo.innerHTML += `<button id="botonCalcularMultas" onclick="calcTotal()">Calcular</button>`;
 }
