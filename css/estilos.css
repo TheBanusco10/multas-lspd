@@ -317,7 +317,7 @@ body {
     }
 }
 
-@media (min-width: 992px and max-width: 1999) {
+@media (min-width: 992px) and (max-width: 1999px) {
     #parrafoTotal {
         margin-top: -90%;
         max-height: 500px;
