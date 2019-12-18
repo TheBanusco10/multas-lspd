@@ -53,6 +53,7 @@ function calcTotal() {
         totalTimeJail += parseInt(multas.Graves[element].Federal);
     });
 
+    prepararTotal();
     mostrarTotal(totalMoney, totalTimeJail);
 
 }
@@ -144,24 +145,25 @@ function noCoopera() {
 function calcularDroga() {
     let cantidad = 0;
     let diferencia = 0;
-    let dineroParaAdd = 1500;
+    let dineroParaAdd = 250;
     let drogaInput = Math.abs(document.getElementById("drogaInput").value);
                 
-    if (drogaInput >= 20) {
+    if (drogaInput >= UNIDADESDROGA) {
                     
         cantidad += dineroParaAdd;
                     
         diferencia = drogaInput;
                     
-        diferencia -= 20;
+        diferencia -= UNIDADESDROGA;
                     
-        while(diferencia >= 20) {
+        while(diferencia >= UNIDADESDROGA) {
             
-            cantidad += 1000;
-            diferencia -= 20;
+            cantidad += dineroParaAdd;
+            diferencia -= UNIDADESDROGA;
         }
         
         totalMoney += cantidad;
+        prepararTotal();
         mostrarTotal(totalMoney, totalTimeJail);
     }
                     
@@ -174,6 +176,10 @@ function calcularEncarcelamiento(cantidadTiempo) {
         return "en federal";
 }
 
+/*  
+*   FUNCIÓN PARA MOSTRAR LAS MULTAS A CALCULAR Y EL BOTÓN CALCULAR EN EL TOTAL
+*   (JUNTADA CON mostrarTotal(), MUESTRA TODO EL TOTAL COMPLETO)
+*/
 function prepararTotal() {
     total.innerHTML = `<div id="total" class="alert alert-success" role="alert"></div>`;
     

@@ -207,11 +207,7 @@ body {
 
 #botonAtenuar, #botonNoCoopera {
     width: auto;
-    border-radius: 50%;
-}
-
-#botonAtenuar i, #botonNoCoopera i {
-    vertical-align: middle;
+    border-radius: 100%;
 }
 
 #botonCalcularMultas {
