@@ -56,7 +56,6 @@ for (var i = 0; i < multas.Leves.length; i++) {
         multas.Leves[i].Nombre +
         '</div> ' +
         '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Leves[i].Descripcion + '<br/><br/>' +
         '<b> ' + multas.Leves[i].Precio + ' euros / ' + multas.Leves[i].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '<div class="card-footer"> ' +
@@ -75,7 +74,6 @@ for (var i = 0; i < multas.Medias.length; i++) {
         multas.Medias[i].Nombre +
         '</div> ' +
         '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Medias[i].Descripcion + '<br/><br/>' +
         '<b> ' + multas.Medias[i].Precio + ' euros / ' + multas.Medias[i].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '<div class="card-footer"> ' +
@@ -94,7 +92,6 @@ for (var i = 0; i < multas.Graves.length; i++) {
         multas.Graves[i].Nombre +
         '</div> ' +
         '<div class="card-body"> ' +
-        '<p class="card-text">' + multas.Graves[i].Descripcion + '<br/><br/>' +
         '<b> ' + multas.Graves[i].Precio + ' euros / ' + multas.Graves[i].Federal + ' meses en federal </b></p> ' +
         '</div> ' +
         '<div class="card-footer"> ' +
