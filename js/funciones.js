@@ -87,27 +87,39 @@ function mostrarTotal(totalMoney, totalTimeJail) {
 
     nuevoParrafo.innerHTML = "";
 
-    nuevoParrafo.innerHTML += `<p id="nuevoParrafo"><b>/mult ID ${idMulta} ${totalMoney.toFixed(2)}</b><br></p>`;
+    nuevoParrafo.innerHTML += `<p id="polcad"><b>/mult ID ${idMulta} ${totalMoney.toFixed(2)}</b><br></p>`;
 
-    let prueba = document.getElementById("nuevoParrafo");
+    let parrafoPolcad = document.getElementById("polcad");
 
     traficPenalties.forEach(element => {
-        prueba.innerHTML += `${multas.Trafico[element].Nombre} ${multas.Trafico[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Trafico[element].Nombre} ${multas.Trafico[element].Precio}€, `;
     });
 
     slightPenalties.forEach(element => {
-        prueba.innerHTML += `${multas.Leves[element].Nombre} ${multas.Leves[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Leves[element].Nombre} ${multas.Leves[element].Precio}€, `;
     });
 
     mediumPenalties.forEach(element => {
-        prueba.innerHTML += `${multas.Medias[element].Nombre} ${multas.Medias[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Medias[element].Nombre} ${multas.Medias[element].Precio}€, `;
     });
 
     severePenalties.forEach(element => {
-        prueba.innerHTML += `${multas.Graves[element].Nombre} ${multas.Graves[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} ${multas.Graves[element].Precio}€, `;
     });
 
-    nuevoParrafo.innerHTML += `TOTAL: ${totalMoney.toFixed(2)} / ${totalTimeJail.toFixed(2)} ${calcularEncarcelamiento(totalTimeJail)}`;
+    parrafoPolcad.innerHTML += `<p><b>TOTAL: ${totalMoney.toFixed(2)} / ${totalTimeJail.toFixed(2)} ${calcularEncarcelamiento(totalTimeJail)}</p></b>`;
+    parrafoPolcad.innerHTML += `<div class="row">
+    <div class="col-sm-2">
+        <button id="botonAtenuar" class="btn btn-primary" onclick="atenuarMulta()"><i class="fas fa-angle-double-down"></i></button>
+    </div>
+    <div class="col-sm-2">
+        <button id="botonNoCoopera" class="btn btn-danger" onclick="noCoopera()"><i class="fas fa-angle-double-up"></i></button>
+    </div>
+    <div class="col-sm-8">
+        <input id="drogaInput" type="number" placeholder="M / PP.AA">
+        <button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>
+    </div>
+    </div>`;
 
 }
 
@@ -128,9 +140,7 @@ function atenuarMulta() {
         }
 
 
-        //mostrarTotal(totalMoney, totalTimeJail);
-        parrafo = document.getElementById("parrafo");
-        parrafo.innerHTML += `<br><hr><p><b>ATENUADO: ${totalMoney.toFixed(2)} euros / ${cantidadAtenuadaFederal.toFixed(2)} meses ${calcularEncarcelamiento(cantidadAtenuadaFederal)}</b></p>`;
+        mostrarTotal(totalMoney, totalTimeJail);
 
     }
 
@@ -187,7 +197,9 @@ function calcularEncarcelamiento(cantidadTiempo) {
  *   (JUNTADA CON mostrarTotal(), MUESTRA TODO EL TOTAL COMPLETO)
  */
 function prepararTotal() {
-    total.innerHTML = `<div id="total" class="alert alert-success" role="alert"></div>`;
+    total.innerHTML = `<div id = "total"
+    class = "alert alert-success"
+    role = "alert"> </div>`;
 
     let nuevoParrafo = document.getElementById("total");
 

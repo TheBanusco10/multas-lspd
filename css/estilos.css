@@ -248,6 +248,10 @@ body {
     text-align: center;
 }
 
+#polcad button {
+    margin: auto;
+}
+
 
 /*
 * =============================
