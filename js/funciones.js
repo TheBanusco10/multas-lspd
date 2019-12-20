@@ -82,13 +82,15 @@ function addSevereList(index) {
 // MUESTRA EL TOTAL DE LA CONDENA
 function mostrarTotal(totalMoney, totalTimeJail) {
 
+    let idMulta = parseInt(Math.random() * 1000);
     let nuevoParrafo = document.getElementById("total");
 
-    nuevoParrafo.innerHTML += 
-    '<h4 class="alert-heading">TOTAL</h4>' +
-    '<hr>' +
-    '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / ' + totalTimeJail + ' meses ' + calcularEncarcelamiento(totalTimeJail) + '</b></p>' +
-    '<div class="row">' +
+    nuevoParrafo.innerHTML +=
+        '<h4 class="alert-heading">TOTAL</h4>' +
+        '<hr>' +
+        '<p id="parrafo"><b>' + totalMoney.toFixed(2) + ' euros / ' + totalTimeJail + ' meses ' + calcularEncarcelamiento(totalTimeJail) + '</b></p>' +
+        '<p><b>/mult ID ' + idMulta + ' ' + totalMoney.toFixed(2) + '</b></p>' +
+        '<div class="row">' +
         '<div class="col-sm-2">' +
         '<button id="botonAtenuar" class="btn btn-primary" onclick="atenuarMulta()"><i class="fas fa-angle-double-down"></i></button>' +
         '</div>' +
@@ -99,9 +101,9 @@ function mostrarTotal(totalMoney, totalTimeJail) {
         '<input id="drogaInput" type="number" placeholder="M / PP.AA">' +
         '<button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>' +
         '</div>' +
-    '</div>' +
-    '<hr>' +
-    '<p>Sistema LSPD</p>';
+        '</div>' +
+        '<hr>' +
+        '<p>Sistema LSPD</p>';
 
 }
 
@@ -110,10 +112,10 @@ function atenuarMulta() {
 
     let cantidadAtenuadaFederal = 0;
     let cantidadAtenuadaDinero;
-    
+
     if (totalMoney > 1 && !atenuado) {
         cantidadAtenuadaDinero = totalMoney - (totalMoney * PORCENTAJEATENUAR);
-        
+
         totalMoney = cantidadAtenuadaDinero;
 
         if (totalTimeJail > 1) {
@@ -121,7 +123,7 @@ function atenuarMulta() {
             totalTimeJail = cantidadAtenuadaFederal;
         }
 
-        
+
         //mostrarTotal(totalMoney, totalTimeJail);
         parrafo = document.getElementById("parrafo");
         parrafo.innerHTML += `<br><hr><p><b>ATENUADO: ${totalMoney.toFixed(2)} euros / ${cantidadAtenuadaFederal.toFixed(2)} meses ${calcularEncarcelamiento(cantidadAtenuadaFederal)}</b></p>`;
@@ -137,7 +139,7 @@ function noCoopera() {
     atenuado = false;
 
     totalMoney += 1000;
-    
+
     prepararTotal();
     mostrarTotal(totalMoney, totalTimeJail);
 }
@@ -147,26 +149,26 @@ function calcularDroga() {
     let diferencia = 0;
     let dineroParaAdd = 250;
     let drogaInput = Math.abs(document.getElementById("drogaInput").value);
-                
+
     if (drogaInput >= UNIDADESDROGA) {
-                    
+
         cantidad += dineroParaAdd;
-                    
+
         diferencia = drogaInput;
-                    
+
         diferencia -= UNIDADESDROGA;
-                    
-        while(diferencia >= UNIDADESDROGA) {
-            
+
+        while (diferencia >= UNIDADESDROGA) {
+
             cantidad += dineroParaAdd;
             diferencia -= UNIDADESDROGA;
         }
-        
+
         totalMoney += cantidad;
         prepararTotal();
         mostrarTotal(totalMoney, totalTimeJail);
     }
-                    
+
 }
 
 function calcularEncarcelamiento(cantidadTiempo) {
@@ -177,12 +179,12 @@ function calcularEncarcelamiento(cantidadTiempo) {
 }
 
 /*  
-*   FUNCIÓN PARA MOSTRAR LAS MULTAS A CALCULAR Y EL BOTÓN CALCULAR EN EL TOTAL
-*   (JUNTADA CON mostrarTotal(), MUESTRA TODO EL TOTAL COMPLETO)
-*/
+ *   FUNCIÓN PARA MOSTRAR LAS MULTAS A CALCULAR Y EL BOTÓN CALCULAR EN EL TOTAL
+ *   (JUNTADA CON mostrarTotal(), MUESTRA TODO EL TOTAL COMPLETO)
+ */
 function prepararTotal() {
     total.innerHTML = `<div id="total" class="alert alert-success" role="alert"></div>`;
-    
+
     let nuevoParrafo = document.getElementById("total");
 
     traficPenalties.forEach(element => {
@@ -200,6 +202,6 @@ function prepararTotal() {
     severePenalties.forEach(element => {
         nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Graves[element].Nombre}</p>`;
     });
-    
+
     nuevoParrafo.innerHTML += `<button id="botonCalcularMultas" onclick="calcTotal()">Calcular</button>`;
 }
