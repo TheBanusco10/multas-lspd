@@ -1,5 +1,4 @@
 @import url(header.css);
-
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +7,7 @@
 body {
     background: rgb(235, 235, 235);
 }
+
 
 /*
 * =============================
@@ -21,27 +21,22 @@ body {
     margin-top: 15px;
     margin-bottom: 15px;
     text-align: center;
-
     color: #829FD9;
     font-family: 'Bebas Neue', cursive;
-
     background-color: rgb(44, 44, 44, .8);
 }
 
 #armasLegales h5 {
     text-align: center;
-
     font-size: 30px;
     font-family: 'Bebas Neue', cursive;
 }
 
 #armasLegales .card {
     margin: 0px 5px 10px 0px;
-
     width: 100%;
     height: 250px;
-
-    border: 1px solid rgba(0,0,0,.5);
+    border: 1px solid rgba(0, 0, 0, .5);
 }
 
 #armasLegales img {
@@ -49,9 +44,11 @@ body {
     height: 160px;
 }
 
+
 /*
 * =============================
 */
+
 
 /*
 * =============================
@@ -65,22 +62,17 @@ body {
 
 #buscarMultasSeccion input {
     margin: 10px 0px 20px auto;
-    
     width: 90%;
-
     border-radius: 50px;
     border: none;
-
     padding: 10px;
 }
 
 #buscarMultasSeccion button {
     border: none;
     padding: 8px;
-
     background-color: #080E33;
     color: white;
-
     border-radius: 50px;
 }
 
@@ -125,7 +117,8 @@ body {
     overflow: scroll;
 }
 
-#multasDisponibles, #calcularMultas {
+#multasDisponibles,
+#calcularMultas {
     text-align: center;
 }
 
@@ -143,10 +136,8 @@ body {
     border: none;
     padding: 5px;
     width: 200px;
-
     background-color: #080E33;
     color: white;
-
     border-radius: 4px;
 }
 
@@ -156,7 +147,6 @@ body {
 
 .btn {
     width: 200px;
-
     margin-top: 10px;
 }
 
@@ -169,9 +159,11 @@ body {
     font-size: 25px;
 }
 
+
 /*
 * =============================
 */
+
 
 /*
 * =============================
@@ -179,55 +171,25 @@ body {
 * =============================
 */
 
-/*#calcularMultas button {
-    width: 200px;
-
-    margin: 10px 0px 10px 0px;
-    padding: 5px;
-
-    border: none;
-    background-color: #2039CC;
-    border-radius: 4px;
-
-    color: white;
-}*/
-
-/*#botonAtenuar, #botonNoCoopera, #botonCalcularMultas {
-    width: 200px;
-
-    margin: 10px 0px 10px 0px;
-    padding: 5px;
-
-    border: none;
-    background-color: #2039CC;
-    border-radius: 4px;
-
-    color: white;
-}*/
-
-#botonAtenuar, #botonNoCoopera {
+#botonAtenuar,
+#botonNoCoopera {
     width: auto;
     border-radius: 100%;
 }
 
 #botonCalcularMultas {
     width: 200px;
-
     margin: 10px 0px 10px 0px;
     padding: 5px;
-
     border: none;
     background-color: #2039CC;
     border-radius: 4px;
-
     color: white;
 }
 
 #calcularMultas h2 {
-    
     font-family: 'Bebas Neue', cursive;
     font-size: 3em;
-
     margin-top: 25px;
 }
 
@@ -256,18 +218,13 @@ body {
 }
 
 #drogaBoton {
-    
     width: 40px;
     padding: 5px;
-    
     line-height: 25px;
-    
     margin-left: 5px;
-    
     border: none;
     background-color: #2039CC;
     border-radius: 4px;
-
     color: white;
 }
 
@@ -286,9 +243,16 @@ body {
     max-height: 150px;
     overflow: scroll;
 }
+
+#modal-body {
+    text-align: center;
+}
+
+
 /*
 * =============================
 */
+
 
 /*
 * =============================
@@ -307,7 +271,6 @@ body {
 *   MEDIAQUERIES
 * =============================
 */
-
 
 @media (min-width: 1200px) {
     #parrafoTotal {
