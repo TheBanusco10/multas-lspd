@@ -82,12 +82,13 @@ function addSevereList(index) {
 // MUESTRA EL TOTAL DE LA CONDENA
 function mostrarTotal(totalMoney, totalTimeJail) {
 
+    let fecha = new Date();
     let idMulta = parseInt(Math.random() * 1000);
     let nuevoParrafo = document.getElementById("modal-body");
 
     nuevoParrafo.innerHTML = "";
 
-    nuevoParrafo.innerHTML += `<p id="polcad"><b>/mult ID ${idMulta} ${totalMoney.toFixed(2)}</b><br></p>`;
+    nuevoParrafo.innerHTML += `<p id="polcad"><b>/mult IDDELSUJETO ${idMulta} ${totalMoney.toFixed(2)}</b><br></p>`;
 
     let parrafoPolcad = document.getElementById("polcad");
 
@@ -107,7 +108,11 @@ function mostrarTotal(totalMoney, totalTimeJail) {
         parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} ${multas.Graves[element].Precio}€, `;
     });
 
-    parrafoPolcad.innerHTML += `<p><b>TOTAL: ${totalMoney.toFixed(2)} / ${totalTimeJail.toFixed(2)} ${calcularEncarcelamiento(totalTimeJail)}</p></b>`;
+    parrafoPolcad.innerHTML += `ID: ${idMulta}, `;
+
+    console.log("Ha pasado");
+
+    parrafoPolcad.innerHTML += `<p><b>TOTAL: ${totalMoney.toFixed(2)} / ${totalTimeJail.toFixed(2)} ${calcularEncarcelamiento(totalTimeJail)} (${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()})</p></b>`;
     parrafoPolcad.innerHTML += `<div class="row">
     <div class="col-sm-2">
         <button id="botonAtenuar" class="btn btn-primary" onclick="atenuarMulta()"><i class="fas fa-angle-double-down"></i></button>
@@ -222,4 +227,80 @@ function prepararTotal() {
     nuevoParrafo.innerHTML += `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
     Calcular
   </button>`;
+}
+
+function mostrarMultasFuncion() {
+
+    // MOSTRAMOS LAS MULTAS DE TRÁFICO
+    mostrarMultas.innerHTML += '<h3 id="multasTráficoh3">Multas tráfico</h3>'
+    for (var i = 0; i < multas.Trafico.length; i++) {
+        mostrarMultas.innerHTML +=
+            '<div class="card"> ' +
+            '<div class="card-header"> ' +
+            multas.Trafico[i].Nombre +
+            '</div> ' +
+            '<div class="card-body"> ' +
+            '<p class="card-text">' +
+            '<b> ' + multas.Trafico[i].Precio + ' euros / ' + multas.Trafico[i].Federal + ' meses en federal </b></p> ' +
+            '</div> ' +
+            '<div class="card-footer"> ' +
+            '<button onclick="addPenalty(this)" id="' + i + '" name="tipoTrafico"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '</div> ' +
+            '</div> ';
+    }
+    //-------------------------------------------------------
+
+    // MOSTRAMOS LAS MULTAS LEVES
+    mostrarMultas.innerHTML += '<h3 id="multasLevesh3">Multas leves</h3>'
+    for (var i = 0; i < multas.Leves.length; i++) {
+        mostrarMultas.innerHTML +=
+            '<div class="card"> ' +
+            '<div class="card-header"> ' +
+            multas.Leves[i].Nombre +
+            '</div> ' +
+            '<div class="card-body"> ' +
+            '<b> ' + multas.Leves[i].Precio + ' euros / ' + multas.Leves[i].Federal + ' meses en federal </b></p> ' +
+            '</div> ' +
+            '<div class="card-footer"> ' +
+            '<button onclick="addPenalty(this)" id="' + i + '" name="tipoLeve"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '</div> ' +
+            '</div> ';
+    }
+    //---------------------------------------------------------------
+
+    // MOSTRAMOS LAS MULTAS MEDIAS
+    mostrarMultas.innerHTML += '<h3 id="multasMediash3">Multas medias</h3>'
+    for (var i = 0; i < multas.Medias.length; i++) {
+        mostrarMultas.innerHTML +=
+            '<div class="card"> ' +
+            '<div class="card-header"> ' +
+            multas.Medias[i].Nombre +
+            '</div> ' +
+            '<div class="card-body"> ' +
+            '<b> ' + multas.Medias[i].Precio + ' euros / ' + multas.Medias[i].Federal + ' meses en federal </b></p> ' +
+            '</div> ' +
+            '<div class="card-footer"> ' +
+            '<button onclick="addPenalty(this)" id="' + i + '" name="tipoMedia"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '</div> ' +
+            '</div> ';
+    }
+    //---------------------------------------------------------------
+
+    // MOSTRAMOS LAS MULTAS GRAVES
+    mostrarMultas.innerHTML += '<h3 id="multasGravesh3">Multas graves</h3>'
+    for (var i = 0; i < multas.Graves.length; i++) {
+        mostrarMultas.innerHTML +=
+            '<div class="card"> ' +
+            '<div class="card-header"> ' +
+            multas.Graves[i].Nombre +
+            '</div> ' +
+            '<div class="card-body"> ' +
+            '<b> ' + multas.Graves[i].Precio + ' euros / ' + multas.Graves[i].Federal + ' meses en federal </b></p> ' +
+            '</div> ' +
+            '<div class="card-footer"> ' +
+            '<button onclick="addPenalty(this)" id="' + i + '" name="tipoGrave"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '</div> ' +
+            '</div> ';
+    }
+    //---------------------------------------------------------------
 }
