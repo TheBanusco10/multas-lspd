@@ -292,8 +292,8 @@ var multas = {
             "Federal": "12"
         },
         {
-            "Nombre": "5.8 Intento de homicidio a un policia / EMS",
-            "Descripcion": "Intento de homicidio a un policia / EMS.",
+            "Nombre": "5.8 Intento de homicidio a un policía / EMS",
+            "Descripcion": "Intento de homicidio a un policía / EMS.",
             "Precio": "25000",
             "Federal": "24"
         },
@@ -327,35 +327,47 @@ var multas = {
             "Precio": "30000",
             "Federal": "30"
         },
+
         {
-            "Nombre": "5.14 Robo de Banco",
-            "Descripcion": "Robo de Banco.",
-            "Precio": "33000",
-            "Federal": "35"
-        },
-        {
-            "Nombre": "5.15 Secuestro de un Agente / EMS",
+            "Nombre": "5.14 Secuestro de un Agente / EMS",
             "Descripcion": "Secuestro de un Agente / EMS.",
             "Precio": "32000",
             "Federal": "35"
         },
-
         {
-            "Nombre": "5.16 Contrabando de droga / armas (Posesión +200 unidades)",
+            "Nombre": "5.15 Robo de banco Fleeca (Pequeño)",
+            "Descripcion": "Robo de banco Fleeca (Pequeño).",
+            "Precio": "40000",
+            "Federal": "30"
+        },
+        {
+            "Nombre": "5.16 Robo de banco Fleeca (Normal)",
+            "Descripcion": "Robo de banco Fleeca (Normal).",
+            "Precio": "47000",
+            "Federal": "35"
+        },
+        {
+            "Nombre": "5.17 Contrabando de droga / armas (Posesión +200 unidades)",
             "Descripcion": "Contrabando de droga / armas (Posesión +200 unidades).",
             "Precio": "40000",
             "Federal": "38"
         },
         {
-            "Nombre": "5.17 Robo de Banco central",
-            "Descripcion": "Robo de Banco central.",
-            "Precio": "48000",
+            "Nombre": "5.18 Robo de Banco Blaine Country",
+            "Descripcion": "Robo de Banco Blaine Country.",
+            "Precio": "52000",
+            "Federal": "40"
+        },
+        {
+            "Nombre": "5.19 Robo de Banco Central",
+            "Descripcion": "Robo de Banco Central.",
+            "Precio": "59000",
             "Federal": "50"
         },
         {
-            "Nombre": "5.18 Asesinato de un Agente / EMS",
+            "Nombre": "5.20 Asesinato de un Agente / EMS",
             "Descripcion": "Asesinato de un Agente / EMS.",
-            "Precio": "50000",
+            "Precio": "60000",
             "Federal": "55"
         },
     ]
