@@ -29,6 +29,9 @@ function addPenalty(comp) {
 
 function calcTotal() {
 
+    totalMoney = 0;
+    totalTimeJail = 0;
+
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS DE TRÁFICO
     traficPenalties.forEach(element => {
         totalMoney += parseFloat(multas.Trafico[element].Precio);
@@ -202,14 +205,20 @@ function calcularEncarcelamiento(cantidadTiempo) {
  *   (JUNTADA CON mostrarTotal(), MUESTRA TODO EL TOTAL COMPLETO)
  */
 function prepararTotal() {
-    total.innerHTML = `<div id = "total"
+    total.innerHTML = `<div
     class = "alert alert-success"
-    role = "alert"> </div>`;
+    role = "alert"> 
+    <div class="container-fluid">
+    <div id = "total" class="row">
+    </div>
+    </div>
+    </div>`;
 
     let nuevoParrafo = document.getElementById("total");
 
     traficPenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Trafico[element].Nombre}</p>`;
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Trafico[element].Nombre}</p>
+                                   <button id="${element}" name="tipoTrafico" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     slightPenalties.forEach(element => {
@@ -224,7 +233,7 @@ function prepararTotal() {
         nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Graves[element].Nombre}</p>`;
     });
 
-    nuevoParrafo.innerHTML += `<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
+    nuevoParrafo.innerHTML += `<button type="button" class="btn btn-primary botonCalcularMultas" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
     Calcular
   </button>`;
 }
@@ -303,4 +312,16 @@ function mostrarMultasFuncion() {
             '</div> ';
     }
     //---------------------------------------------------------------
+}
+
+function eliminarMulta(objeto) {
+
+    console.log(objeto);
+
+    if (objeto.name == "tipoTrafico") {
+        traficPenalties.pop(objeto.id);
+        prepararTotal();
+    }
+
+    console.log("Dentro eliminarMulta");
 }
