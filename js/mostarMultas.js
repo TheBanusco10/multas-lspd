@@ -1,10 +1,6 @@
 // MULTAS -------------------------------------------------------------
 
-//var multasTrafico = document.getElementById("contenidoMultasTrafico");
 let mostrarMultas = document.getElementById("multas");
-/*var multasLeves = document.getElementById("contenidoMultasLeves");
-var multasMedias = document.getElementById("contenidoMultasMedias");
-var multasGraves = document.getElementById("contenidoMultasGraves");*/
 
 // ------------------------------------------------------------
 

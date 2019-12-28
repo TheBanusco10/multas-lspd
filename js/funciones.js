@@ -5,22 +5,19 @@ function addPenalty(comp) {
 
     if (comp.name == "tipoTrafico") {
         id = comp.id;
-        traficPenalties.push(id)
-        addTraficList();
+        traficPenalties.push(id);
     } else if (comp.name == "tipoLeve") {
         id = comp.id;
         slightPenalties.push(id);
-        addSlightList();
     } else if (comp.name == "tipoMedia") {
         id = comp.id;
         mediumPenalties.push(id);
-        addMediumList();
     } else {
         id = comp.id;
         severePenalties.push(id);
-        addSevereList();
     }
 
+    prepararTotal();
 
 
     //----------------------------------------------------
@@ -59,26 +56,6 @@ function calcTotal() {
     prepararTotal();
     mostrarTotal(totalMoney, totalTimeJail);
 
-}
-
-// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO TRÁFICO EN LA LISTA DE CÁLCULO
-function addTraficList(index) {
-    prepararTotal();
-}
-
-// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO LEVE EN LA LISTA DE CÁLCULO
-function addSlightList(index) {
-    prepararTotal();
-}
-
-// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO MEDIO EN LA LISTA DE CÁLCULO
-function addMediumList(index) {
-    prepararTotal();
-}
-
-// FUNCIÓN PARA MOSTRAR LA MULTA DE TIPO GRAVE EN LA LISTA DE CÁLCULO
-function addSevereList(index) {
-    prepararTotal();
 }
 
 
@@ -222,15 +199,18 @@ function prepararTotal() {
     });
 
     slightPenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Leves[element].Nombre}</p>`;
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Leves[element].Nombre}</p>
+                                   <button id="${element}" name="tipoLeve" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     mediumPenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Medias[element].Nombre}</p>`;
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Medias[element].Nombre}</p>
+                                   <button id="${element}" name="tipoMedio" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     severePenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal">${multas.Graves[element].Nombre}</p>`;
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Graves[element].Nombre}</p>
+                                   <button id="${element}" name="tipoGrave" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     nuevoParrafo.innerHTML += `<button type="button" class="btn btn-primary botonCalcularMultas" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
@@ -316,12 +296,10 @@ function mostrarMultasFuncion() {
 
 function eliminarMulta(objeto) {
 
-    console.log(objeto);
+    if (objeto.name == "tipoTrafico") traficPenalties.pop(objeto.id);
+    else if (objeto.name == "tipoLeve") slightPenalties.pop(objeto.id);
+    else if (objeto.name == "tipoMedio") mediumPenalties.pop(objeto.id);
+    else severePenalties.pop(objeto.id);
 
-    if (objeto.name == "tipoTrafico") {
-        traficPenalties.pop(objeto.id);
-        prepararTotal();
-    }
-
-    console.log("Dentro eliminarMulta");
+    prepararTotal();
 }

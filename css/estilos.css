@@ -263,12 +263,17 @@ body {
     border: none;
 }
 
+.quitarMulta:active {
+    color: beige;
+}
+
 .botonCalcularMultas {
     margin: auto;
 }
 
 #total .col-md-2 {
     background: none;
+    height: 50%;
 }
 
 
