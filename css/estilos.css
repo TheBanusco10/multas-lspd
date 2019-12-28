@@ -70,14 +70,14 @@ body {
 
 #buscarMultasSeccion button {
     border: none;
-    padding: 8px;
-    background-color: #080E33;
+    padding: 5px;
+    background-color: #1A2526;
     color: white;
     border-radius: 50px;
 }
 
 #buscarMultasSeccion button:hover {
-    background-color: rgb(16, 25, 95);
+    background-color: rgb(34, 48, 49);
 }
 
 #buscarMultasSeccion .card {
@@ -85,7 +85,7 @@ body {
 }
 
 #buscarMultasSeccion .card button {
-    width: 200px;
+    width: 150px;
 }
 
 #buscarMultasSeccion .card .card-header {
@@ -124,6 +124,11 @@ body {
 
 #multasDisponibles a {
     width: 150px;
+    background-color: #0067d4;
+}
+
+#multasDisponibles a:hover {
+    background-color: #026ee0;
 }
 
 #multasDisponibles h3 {
@@ -135,14 +140,14 @@ body {
 #multasDisponibles button {
     border: none;
     padding: 5px;
-    width: 200px;
-    background-color: #080E33;
+    width: 150px;
+    background-color: #1A2526;
     color: white;
-    border-radius: 4px;
+    border-radius: 50px;
 }
 
 #multasDisponibles button:hover {
-    background-color: rgb(16, 25, 95);
+    background-color: rgb(34, 48, 49);
 }
 
 .btn {
@@ -250,6 +255,25 @@ body {
 
 #polcad button {
     margin: auto;
+}
+
+.quitarMulta {
+    font-size: 17px;
+    color: #7F0000;
+    border: none;
+}
+
+.quitarMulta:active {
+    color: beige;
+}
+
+.botonCalcularMultas {
+    margin: auto;
+}
+
+#total .col-md-2 {
+    background: none;
+    height: 50%;
 }
 
 
