@@ -150,6 +150,10 @@ body {
     background-color: rgb(34, 48, 49);
 }
 
+#inputCantidadMultas {
+    width: 50px;
+}
+
 .btn {
     width: 200px;
     margin-top: 10px;

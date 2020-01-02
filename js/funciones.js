@@ -2,18 +2,30 @@
 function addPenalty(comp) {
 
     let id = 0;
+    let cantidad = 0;
+    let inputCantidadMultas;
 
     if (comp.name == "tipoTrafico") {
         id = comp.id;
+        inputCantidadMultas = referenciarInputCantidadMultas(comp);
+        multas.Trafico[id].Cantidad = inputCantidadMultas;
+        console.log("Trafico" + multas.Leves[id].Cantidad);
         traficPenalties.push(id);
     } else if (comp.name == "tipoLeve") {
         id = comp.id;
+        inputCantidadMultas = referenciarInputCantidadMultas(comp);
+        multas.Leves[id].Cantidad = inputCantidadMultas;
+        console.log("Leve" + multas.Leves[id].Cantidad);
         slightPenalties.push(id);
     } else if (comp.name == "tipoMedia") {
         id = comp.id;
+        inputCantidadMultas = referenciarInputCantidadMultas(comp);
+        multas.Medias[id].Cantidad = inputCantidadMultas;
         mediumPenalties.push(id);
     } else {
         id = comp.id;
+        inputCantidadMultas = referenciarInputCantidadMultas(comp);
+        multas.Graves[id].Cantidad = inputCantidadMultas;
         severePenalties.push(id);
     }
 
@@ -194,22 +206,22 @@ function prepararTotal() {
     let nuevoParrafo = document.getElementById("total");
 
     traficPenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Trafico[element].Nombre}</p>
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Trafico[element].Nombre} x${multas.Trafico[element].Cantidad}</p>
                                    <button id="${element}" name="tipoTrafico" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     slightPenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Leves[element].Nombre}</p>
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Leves[element].Nombre} x${multas.Leves[element].Cantidad}</p>
                                    <button id="${element}" name="tipoLeve" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     mediumPenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Medias[element].Nombre}</p>
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Medias[element].Nombre} x${multas.Medias[element].Cantidad}</p>
                                    <button id="${element}" name="tipoMedio" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
     severePenalties.forEach(element => {
-        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Graves[element].Nombre}</p>
+        nuevoParrafo.innerHTML += `<p class="multasParrafoTotal col-md-10">${multas.Graves[element].Nombre} x${multas.Graves[element].Cantidad}</p>
                                    <button id="${element}" name="tipoGrave" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
@@ -234,6 +246,8 @@ function mostrarMultasFuncion() {
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoTrafico"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '<label for="inputCantidadMultas' + i + '">Cantidad: </label> ' +
+            '<input type="number" value="1" id="inputCantidadMultasTrafico' + i + '" name="tipoTrafico"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -252,6 +266,8 @@ function mostrarMultasFuncion() {
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoLeve"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '<label for="inputCantidadMultas">Cantidad: </label> ' +
+            '<input type="number" value="1" id="inputCantidadMultasLeves' + i + '" name="tipoLeve"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -270,6 +286,8 @@ function mostrarMultasFuncion() {
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoMedia"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '<label for="inputCantidadMultas">Cantidad: </label> ' +
+            '<input type="number" value="1" id="inputCantidadMultasMedias' + i + '" name="tipoMedia"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -288,6 +306,8 @@ function mostrarMultasFuncion() {
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoGrave"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+            '<label for="inputCantidadMultas">Cantidad: </label> ' +
+            '<input type="number" value="1" id="inputCantidadMultasGraves' + i + '" name="tipoGraves"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -296,10 +316,31 @@ function mostrarMultasFuncion() {
 
 function eliminarMulta(objeto) {
 
-    if (objeto.name == "tipoTrafico") traficPenalties.pop(objeto.id);
-    else if (objeto.name == "tipoLeve") slightPenalties.pop(objeto.id);
+    if (objeto.name == "tipoTrafico") {
+
+        multas.Trafico[objeto.id].Cantidad--;
+        if (multas.Trafico[objeto.id].Cantidad == 0) {
+            traficPenalties.pop(objeto.id);
+        }
+
+    } else if (objeto.name == "tipoLeve") slightPenalties.pop(objeto.id);
     else if (objeto.name == "tipoMedio") mediumPenalties.pop(objeto.id);
     else severePenalties.pop(objeto.id);
 
     prepararTotal();
+}
+
+function referenciarInputCantidadMultas(objeto) {
+
+    let input;
+
+    if (objeto.name == "tipoTrafico") {
+        return input = Math.abs(document.getElementById("inputCantidadMultasTrafico" + objeto.id).value);
+    } else if (objeto.name == "tipoLeve") {
+        return input = Math.abs(document.getElementById("inputCantidadMultasLeves" + objeto.id).value);
+    } else if (objeto.name == "tipoMedia") {
+        return input = Math.abs(document.getElementById("inputCantidadMultasMedias" + objeto.id).value);
+    } else {
+        return input = Math.abs(document.getElementById("inputCantidadMultasGraves" + objeto.id).value);
+    }
 }
