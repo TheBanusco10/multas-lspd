@@ -9,24 +9,24 @@ function addPenalty(comp) {
         id = comp.id;
         inputCantidadMultas = referenciarInputCantidadMultas(comp);
         multas.Trafico[id].Cantidad = inputCantidadMultas;
-        console.log("Trafico" + multas.Leves[id].Cantidad);
-        traficPenalties.push(id);
+
+        if (!traficPenalties.includes(id)) traficPenalties.push(id);
+
     } else if (comp.name == "tipoLeve") {
         id = comp.id;
         inputCantidadMultas = referenciarInputCantidadMultas(comp);
         multas.Leves[id].Cantidad = inputCantidadMultas;
-        console.log("Leve" + multas.Leves[id].Cantidad);
-        slightPenalties.push(id);
+        if (!slightPenalties.includes(id)) slightPenalties.push(id);
     } else if (comp.name == "tipoMedia") {
         id = comp.id;
         inputCantidadMultas = referenciarInputCantidadMultas(comp);
         multas.Medias[id].Cantidad = inputCantidadMultas;
-        mediumPenalties.push(id);
+        if (!mediumPenalties.includes(id)) mediumPenalties.push(id);
     } else {
         id = comp.id;
         inputCantidadMultas = referenciarInputCantidadMultas(comp);
         multas.Graves[id].Cantidad = inputCantidadMultas;
-        severePenalties.push(id);
+        if (!severePenalties.includes(id)) severePenalties.push(id);
     }
 
     prepararTotal();
@@ -43,26 +43,26 @@ function calcTotal() {
 
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS DE TRÁFICO
     traficPenalties.forEach(element => {
-        totalMoney += parseFloat(multas.Trafico[element].Precio);
-        totalTimeJail += parseInt(multas.Trafico[element].Federal);
+        totalMoney += parseFloat(multas.Trafico[element].Precio * multas.Trafico[element].Cantidad);
+        totalTimeJail += parseInt(multas.Trafico[element].Federal * multas.Trafico[element].Cantidad);
     });
 
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS LEVES
     slightPenalties.forEach(element => {
-        totalMoney += parseFloat(multas.Leves[element].Precio);
-        totalTimeJail += parseInt(multas.Leves[element].Federal);
+        totalMoney += parseFloat(multas.Leves[element].Precio * multas.Leves[element].Cantidad);
+        totalTimeJail += parseInt(multas.Leves[element].Federal * multas.Leves[element].Cantidad);
     });
 
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS MEDIAS
     mediumPenalties.forEach(element => {
-        totalMoney += parseFloat(multas.Medias[element].Precio);
-        totalTimeJail += parseInt(multas.Medias[element].Federal);
+        totalMoney += parseFloat(multas.Medias[element].Precio * multas.Medias[element].Cantidad);
+        totalTimeJail += parseInt(multas.Medias[element].Federal * multas.Medias[element].Cantidad);
     });
 
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS GRAVES
     severePenalties.forEach(element => {
-        totalMoney += parseFloat(multas.Graves[element].Precio);
-        totalTimeJail += parseInt(multas.Graves[element].Federal);
+        totalMoney += parseFloat(multas.Graves[element].Precio * multas.Graves[element].Cantidad);
+        totalTimeJail += parseInt(multas.Graves[element].Federal * multas.Graves[element].Cantidad);
     });
 
     prepararTotal();
@@ -85,24 +85,22 @@ function mostrarTotal(totalMoney, totalTimeJail) {
     let parrafoPolcad = document.getElementById("polcad");
 
     traficPenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Trafico[element].Nombre} ${multas.Trafico[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Trafico[element].Nombre} x${multas.Trafico[element].Cantidad} ${multas.Trafico[element].Precio}€, `;
     });
 
     slightPenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Leves[element].Nombre} ${multas.Leves[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Leves[element].Nombre} x${multas.Leves[element].Cantidad} ${multas.Leves[element].Precio}€, `;
     });
 
     mediumPenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Medias[element].Nombre} ${multas.Medias[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Medias[element].Nombre} x${multas.Medias[element].Cantidad} ${multas.Medias[element].Precio}€, `;
     });
 
     severePenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} ${multas.Graves[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} x${multas.Graves[element].Cantidad} ${multas.Graves[element].Precio}€, `;
     });
 
     parrafoPolcad.innerHTML += `ID: ${idMulta}, `;
-
-    console.log("Ha pasado");
 
     parrafoPolcad.innerHTML += `<p><b>TOTAL: ${totalMoney.toFixed(2)} / ${totalTimeJail.toFixed(2)} ${calcularEncarcelamiento(totalTimeJail)} (${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()})</p></b>`;
     parrafoPolcad.innerHTML += `<div class="row">
@@ -247,7 +245,7 @@ function mostrarMultasFuncion() {
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoTrafico"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
             '<label for="inputCantidadMultas' + i + '">Cantidad: </label> ' +
-            '<input type="number" value="1" id="inputCantidadMultasTrafico' + i + '" name="tipoTrafico"> ' +
+            '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasTrafico' + i + '" name="tipoTrafico"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -267,7 +265,7 @@ function mostrarMultasFuncion() {
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoLeve"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
             '<label for="inputCantidadMultas">Cantidad: </label> ' +
-            '<input type="number" value="1" id="inputCantidadMultasLeves' + i + '" name="tipoLeve"> ' +
+            '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasLeves' + i + '" name="tipoLeve"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -287,7 +285,7 @@ function mostrarMultasFuncion() {
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoMedia"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
             '<label for="inputCantidadMultas">Cantidad: </label> ' +
-            '<input type="number" value="1" id="inputCantidadMultasMedias' + i + '" name="tipoMedia"> ' +
+            '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasMedias' + i + '" name="tipoMedia"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -307,7 +305,7 @@ function mostrarMultasFuncion() {
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoGrave"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
             '<label for="inputCantidadMultas">Cantidad: </label> ' +
-            '<input type="number" value="1" id="inputCantidadMultasGraves' + i + '" name="tipoGraves"> ' +
+            '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasGraves' + i + '" name="tipoGraves"> ' +
             '</div> ' +
             '</div> ';
     }
@@ -316,16 +314,35 @@ function mostrarMultasFuncion() {
 
 function eliminarMulta(objeto) {
 
+    let posicion = 0;
+
     if (objeto.name == "tipoTrafico") {
 
         multas.Trafico[objeto.id].Cantidad--;
         if (multas.Trafico[objeto.id].Cantidad == 0) {
-            traficPenalties.pop(objeto.id);
+            posicion = traficPenalties.indexOf(objeto.id);
+            traficPenalties.splice(posicion, 1);
         }
 
-    } else if (objeto.name == "tipoLeve") slightPenalties.pop(objeto.id);
-    else if (objeto.name == "tipoMedio") mediumPenalties.pop(objeto.id);
-    else severePenalties.pop(objeto.id);
+    } else if (objeto.name == "tipoLeve") {
+        multas.Leves[objeto.id].Cantidad--;
+        if (multas.Leves[objeto.id].Cantidad == 0) {
+            posicion = slightPenalties.indexOf(objeto.id);
+            slightPenalties.splice(posicion, 1);
+        }
+    } else if (objeto.name == "tipoMedio") {
+        multas.Medias[objeto.id].Cantidad--;
+        if (multas.Medias[objeto.id].Cantidad == 0) {
+            posicion = mediumPenalties.indexOf(objeto.id);
+            mediumPenalties.splice(posicion, 1);
+        }
+    } else {
+        multas.Graves[objeto.id].Cantidad--;
+        if (multas.Graves[objeto.id].Cantidad == 0) {
+            posicion = severePenalties.indexOf(objeto.id);
+            severePenalties.splice(posicion, 1);
+        }
+    }
 
     prepararTotal();
 }

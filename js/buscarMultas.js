@@ -24,6 +24,8 @@ function buscarMulta(e) {
                     '</div> ' +
                     '<div class="card-footer"> ' +
                     '<button onclick="addPenalty(this)" id="' + i + '" name="tipoTrafico"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+                    '<label for="inputCantidadMultas' + i + '">Cantidad: </label> ' +
+                    '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasTrafico' + i + '" name="tipoTrafico"> ' +
                     '</div> ' +
                     '</div> ';
             }
@@ -42,6 +44,8 @@ function buscarMulta(e) {
                     '</div> ' +
                     '<div class="card-footer"> ' +
                     '<button onclick="addPenalty(this)" id="' + i + '" name="tipoLeve"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+                    '<label for="inputCantidadMultas">Cantidad: </label> ' +
+                    '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasLeves' + i + '" name="tipoLeve"> ' +
                     '</div> ' +
                     '</div> ';
             }
@@ -60,6 +64,8 @@ function buscarMulta(e) {
                     '</div> ' +
                     '<div class="card-footer"> ' +
                     '<button onclick="addPenalty(this)" id="' + i + '" name="tipoMedia"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+                    '<label for="inputCantidadMultas">Cantidad: </label> ' +
+                    '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasMedias' + i + '" name="tipoMedia"> ' +
                     '</div> ' +
                     '</div> ';
             }
@@ -78,6 +84,8 @@ function buscarMulta(e) {
                     '</div> ' +
                     '<div class="card-footer"> ' +
                     '<button onclick="addPenalty(this)" id="' + i + '" name="tipoGrave"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
+                    '<label for="inputCantidadMultas">Cantidad: </label> ' +
+                    '<input class="inputCantidadMultas" type="number" value="1" id="inputCantidadMultasGraves' + i + '" name="tipoGraves"> ' +
                     '</div> ' +
                     '</div> ';
             }
