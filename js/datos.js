@@ -259,14 +259,14 @@ var multas = {
         {
             "Nombre": "5.2 Asesinato involuntario de un civil",
             "Cantidad": 0,
-            "Precio": "12000",
-            "Federal": "15"
+            "Precio": "8000",
+            "Federal": "12"
         },
         {
             "Nombre": "5.3 Robo de tienda",
             "Cantidad": 0,
             "Precio": "12000",
-            "Federal": "12"
+            "Federal": "8"
         },
         {
             "Nombre": "5.4 Secuestro de un rehén",
@@ -274,7 +274,6 @@ var multas = {
             "Precio": "13000",
             "Federal": "16"
         },
-
         {
             "Nombre": "5.5 Posesión de arma ilegal (Media)",
             "Cantidad": 0,
@@ -282,92 +281,80 @@ var multas = {
             "Federal": "17"
         },
         {
-            "Nombre": "5.6 Intento de homicidio a un civil",
+            "Nombre": "5.6 Robo de Joyería",
+            "Cantidad": 0,
+            "Precio": "15000",
+            "Federal": "15"
+        },
+        {
+            "Nombre": "5.7 Intento de homicidio a un civil",
             "Cantidad": 0,
             "Precio": "16000",
             "Federal": "16"
         },
         {
-            "Nombre": "5.7 Procesado de marihuana II (+100UD)",
+            "Nombre": "5.8 Procesado de marihuana II (+100UD)",
             "Cantidad": 0,
             "Precio": "16000",
             "Federal": "12"
         },
         {
-            "Nombre": "5.8 Intento de homicidio a un policía / EMS",
+            "Nombre": "5.9 Intento de homicidio a un policía / EMS",
             "Cantidad": 0,
             "Precio": "25000",
-            "Federal": "24"
+            "Federal": "18"
         },
         {
-            "Nombre": "5.9 Venta ilegal de marihuana",
-            "Cantidad": 0,
-            "Precio": "25000",
-            "Federal": "20"
-        },
-        {
-            "Nombre": "5.10 Venta de armas ilegales",
+            "Nombre": "5.10 Venta ilegal de marihuana",
             "Cantidad": 0,
             "Precio": "25000",
             "Federal": "20"
         },
         {
-            "Nombre": "5.11 Asesinato de un civil",
+            "Nombre": "5.11 Venta de armas ilegales",
+            "Cantidad": 0,
+            "Precio": "25000",
+            "Federal": "20"
+        },
+        {
+            "Nombre": "5.12 Robo de banco",
+            "Cantidad": 0,
+            "Precio": "25000",
+            "Federal": "30"
+        },
+        {
+            "Nombre": "5.13 Asesinato de un civil",
             "Cantidad": 0,
             "Precio": "27000",
             "Federal": "30"
         },
         {
-            "Nombre": "5.12 Robo de Joyería",
-            "Cantidad": 0,
-            "Precio": "30000",
-            "Federal": "20"
-        },
-        {
-            "Nombre": "5.13 Posesión de arma ilegal (Pesada)",
+            "Nombre": "5.14 Posesión de arma ilegal (Pesada)",
             "Cantidad": 0,
             "Precio": "30000",
             "Federal": "30"
         },
 
         {
-            "Nombre": "5.14 Secuestro de un Agente / EMS",
+            "Nombre": "5.15 Secuestro de un Agente / EMS",
             "Cantidad": 0,
             "Precio": "32000",
             "Federal": "35"
         },
         {
-            "Nombre": "5.15 Robo de banco Fleeca (Pequeño)",
-            "Cantidad": 0,
-            "Precio": "40000",
-            "Federal": "30"
-        },
-        {
-            "Nombre": "5.16 Robo de banco Fleeca (Normal)",
-            "Cantidad": 0,
-            "Precio": "47000",
-            "Federal": "35"
-        },
-        {
-            "Nombre": "5.17 Contrabando de droga / armas (Posesión +200 unidades)",
+            "Nombre": "5.16 Contrabando de droga / armas (+200 unidades)",
             "Cantidad": 0,
             "Precio": "40000",
             "Federal": "38"
         },
         {
-            "Nombre": "5.18 Robo de Banco Blaine Country",
+            "Nombre": "5.17 Robo de Banco federal",
             "Cantidad": 0,
-            "Precio": "52000",
-            "Federal": "40"
+            "Precio": "60000",
+            "Federal": "60"
         },
         {
-            "Nombre": "5.19 Robo de Banco Central",
-            "Cantidad": 0,
-            "Precio": "59000",
-            "Federal": "50"
-        },
-        {
-            "Nombre": "5.20 Asesinato de un Agente / EMS",
+            "Nombre": "5.18 Asesinato de un Agente / EMS",
             "Cantidad": 0,
             "Precio": "60000",
             "Federal": "55"
