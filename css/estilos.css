@@ -287,6 +287,18 @@ body {
 
 #dropdownAgentes {
     margin-bottom: 10px;
+    
+    cursor: pointer;
+
+    width: 200px;
+
+    /*border: 0;
+    padding: 10px;
+    color: white;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #0d81fd;
+    -webkit-appearance: none;
+    background-position-x: 170px;*/
+    
 }
 
 .flex {

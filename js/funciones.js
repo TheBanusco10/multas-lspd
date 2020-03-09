@@ -230,10 +230,16 @@ function prepararTotal() {
     <div class="row">
         <div class="col-sm-12">  
             <select id="dropdownAgentes">
-                <option value="volvo">Zack</option>
-                <option value="1001">Jackson</option>
-                <option value="mercedes">Mia</option>
-                <option value="audi">Noncan</option>
+                <option value="0623">Zack Lethan</option>
+                <option value="1001">Jackson Stein</option>
+                <option value="1081">Mia Smith</option>
+                <option value="1099">Jhon Noncan</option>
+                <option value="1152">Chloe Briend</option>
+                <option value="1151">Tom Smith</option>
+                <option value="1150">Cristopher Koch</option>
+                <option value="1210">Leon Kennedy</option>
+                <option value="1211">Mike Lawry</option>
+
             </select>
         </div>
         <button type="button" class="btn btn-primary col-sm-12" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
