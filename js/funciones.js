@@ -85,19 +85,19 @@ function mostrarTotal(totalMoney, totalTimeJail) {
     let parrafoPolcad = document.getElementById("polcad");
 
     traficPenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Trafico[element].Nombre} x${multas.Trafico[element].Cantidad} ${multas.Trafico[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Trafico[element].Nombre} x${multas.Trafico[element].Cantidad} ${multas.Trafico[element].Precio}$, `;
     });
 
     slightPenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Leves[element].Nombre} x${multas.Leves[element].Cantidad} ${multas.Leves[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Leves[element].Nombre} x${multas.Leves[element].Cantidad} ${multas.Leves[element].Precio}$, `;
     });
 
     mediumPenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Medias[element].Nombre} x${multas.Medias[element].Cantidad} ${multas.Medias[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Medias[element].Nombre} x${multas.Medias[element].Cantidad} ${multas.Medias[element].Precio}$, `;
     });
 
     severePenalties.forEach(element => {
-        parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} x${multas.Graves[element].Cantidad} ${multas.Graves[element].Precio}€, `;
+        parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} x${multas.Graves[element].Cantidad} ${multas.Graves[element].Precio}$, `;
     });
 
     parrafoPolcad.innerHTML += `ID: ${idMulta}, `;
@@ -240,7 +240,7 @@ function mostrarMultasFuncion() {
             '</div> ' +
             '<div class="card-body"> ' +
             '<p class="card-text">' +
-            '<b> ' + multas.Trafico[i].Precio + ' euros / ' + multas.Trafico[i].Federal + ' meses en federal </b></p> ' +
+            '<b> ' + multas.Trafico[i].Precio + ' dólares / ' + multas.Trafico[i].Federal + ' meses en federal </b></p> ' +
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoTrafico"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
@@ -260,7 +260,7 @@ function mostrarMultasFuncion() {
             multas.Leves[i].Nombre +
             '</div> ' +
             '<div class="card-body"> ' +
-            '<b> ' + multas.Leves[i].Precio + ' euros / ' + multas.Leves[i].Federal + ' meses en federal </b></p> ' +
+            '<b> ' + multas.Leves[i].Precio + ' dólares / ' + multas.Leves[i].Federal + ' meses en federal </b></p> ' +
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoLeve"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
@@ -280,7 +280,7 @@ function mostrarMultasFuncion() {
             multas.Medias[i].Nombre +
             '</div> ' +
             '<div class="card-body"> ' +
-            '<b> ' + multas.Medias[i].Precio + ' euros / ' + multas.Medias[i].Federal + ' meses en federal </b></p> ' +
+            '<b> ' + multas.Medias[i].Precio + ' dólares / ' + multas.Medias[i].Federal + ' meses en federal </b></p> ' +
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoMedia"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +
@@ -300,7 +300,7 @@ function mostrarMultasFuncion() {
             multas.Graves[i].Nombre +
             '</div> ' +
             '<div class="card-body"> ' +
-            '<b> ' + multas.Graves[i].Precio + ' euros / ' + multas.Graves[i].Federal + ' meses en federal </b></p> ' +
+            '<b> ' + multas.Graves[i].Precio + ' dólares / ' + multas.Graves[i].Federal + ' meses en federal </b></p> ' +
             '</div> ' +
             '<div class="card-footer"> ' +
             '<button onclick="addPenalty(this)" id="' + i + '" name="tipoGrave"><span class="fas fa-shopping-basket iconoTienda"></span>Añadir</button> ' +

@@ -2,122 +2,122 @@ var multas = {
     "Trafico": [{
             "Nombre": "2.1 Uso indebido de la bicicleta",
             "Cantidad": 0,
-            "Precio": "350",
+            "Precio": "250",
             "Federal": "0"
         },
         {
             "Nombre": "2.2 Uso indebido de la bocina",
             "Cantidad": 0,
-            "Precio": "300",
+            "Precio": "250",
             "Federal": "0"
         },
         {
             "Nombre": "2.3 Vehículo en mal estado",
             "Cantidad": 0,
-            "Precio": "350",
+            "Precio": "250",
             "Federal": "0"
         },
         {
             "Nombre": "2.4 Cruzar una línea continua",
             "Cantidad": 0,
-            "Precio": "450",
+            "Precio": "300",
             "Federal": "0"
         },
         {
             "Nombre": "2.5 Giro sin señal",
             "Cantidad": 0,
-            "Precio": "400",
+            "Precio": "300",
             "Federal": "0"
         },
 
         {
             "Nombre": "2.6 Estacionamiento indebido",
             "Cantidad": 0,
-            "Precio": "450",
+            "Precio": "325",
             "Federal": "0"
         },
         {
             "Nombre": "2.7 Parada peligrosa",
             "Cantidad": 0,
-            "Precio": "500",
+            "Precio": "350",
             "Federal": "0"
         },
         {
             "Nombre": "2.8 Circular marcha atrás",
             "Cantidad": 0,
-            "Precio": "600",
+            "Precio": "350",
             "Federal": "0"
         },
         {
             "Nombre": "2.9 Saltarse un Stop",
             "Cantidad": 0,
-            "Precio": "650",
+            "Precio": "500",
             "Federal": "0"
         },
         {
             "Nombre": "2.10 Adelantamiento peligroso",
             "Cantidad": 0,
-            "Precio": "800",
+            "Precio": "550",
             "Federal": "0"
         },
         {
             "Nombre": "2.11 Obstruir el tráfico",
             "Cantidad": 0,
-            "Precio": "900",
+            "Precio": "550",
             "Federal": "0"
         },
         {
             "Nombre": "2.12 Saltarse un semáforo en rojo",
             "Cantidad": 0,
-            "Precio": "900",
+            "Precio": "550",
             "Federal": "0"
         },
         {
             "Nombre": "2.13 No ceder el paso a los vehículos de emergencia",
             "Cantidad": 0,
-            "Precio": "900",
+            "Precio": "600",
             "Federal": "0"
         },
         {
             "Nombre": "2.14 No llevar protección personal",
             "Cantidad": 0,
-            "Precio": "1200",
+            "Precio": "750",
             "Federal": "0"
         },
         {
             "Nombre": "2.15 Circular en dirección contraria",
             "Cantidad": 0,
-            "Precio": "1500",
+            "Precio": "800",
             "Federal": "0"
         },
         {
             "Nombre": "2.16 Exceso de velocidad +10 km/h",
             "Cantidad": 0,
-            "Precio": "500",
+            "Precio": "400",
             "Federal": "0"
         },
         {
             "Nombre": "2.17 Exceso de velocidad +11/20 km/h",
             "Cantidad": 0,
-            "Precio": "750",
+            "Precio": "650",
             "Federal": "0"
         },
         {
             "Nombre": "2.18 Exceso de velocidad +21/40 km/h",
             "Cantidad": 0,
-            "Precio": "1050",
+            "Precio": "850",
             "Federal": "0"
         },
         {
             "Nombre": "2.19 Exceso de velocidad +41/60 km/h",
             "Cantidad": 0,
-            "Precio": "1350",
+            "Precio": "1000",
             "Federal": "0"
         },
         {
             "Nombre": "2.20 Exceso de velocidad +61 km/h",
             "Cantidad": 0,
-            "Precio": "1550",
+            "Precio": "1100",
             "Federal": "0"
         },
         {
@@ -135,7 +135,7 @@ var multas = {
         {
             "Nombre": "2.23 Circular sin permiso de conducir",
             "Cantidad": 0,
-            "Precio": "3800",
+            "Precio": "2500",
             "Federal": "0"
         },
     ],
@@ -149,25 +149,25 @@ var multas = {
         {
             "Nombre": "3.2 Rostro oculto",
             "Cantidad": 0,
-            "Precio": "600",
+            "Precio": "450",
             "Federal": "0"
         },
         {
             "Nombre": "3.3 Insultar, gritar y/o faltar el respeto a un civil",
             "Cantidad": 0,
-            "Precio": "900",
+            "Precio": "700",
             "Federal": "0"
         },
         {
             "Nombre": "3.4 Manifestación ilegal",
             "Cantidad": 0,
-            "Precio": "1100",
+            "Precio": "900",
             "Federal": "0"
         },
         {
             "Nombre": "3.5 Insultar, gritar y/o faltar el respeto a un agente / EMS",
             "Cantidad": 0,
-            "Precio": "1700",
+            "Precio": "2000",
             "Federal": "0"
         },
 
@@ -180,25 +180,25 @@ var multas = {
         {
             "Nombre": "3.7 Amenaza verbal o intimidación a un civil",
             "Cantidad": 0,
-            "Precio": "3700",
+            "Precio": "2500",
             "Federal": "0"
         },
         {
             "Nombre": "3.8 Intento de fuga",
             "Cantidad": 0,
-            "Precio": "4500",
+            "Precio": "2500",
             "Federal": "5"
         },
         {
             "Nombre": "3.9 Ocasionar problemas a la LSPD / EMS",
             "Cantidad": 0,
-            "Precio": "5000",
+            "Precio": "3500",
             "Federal": "7"
         },
         {
             "Nombre": "3.10 Amenaza verbal o intimidación a un agente / EMS",
             "Cantidad": 0,
-            "Precio": "5500",
+            "Precio": "4500",
             "Federal": "5"
         }
     ],
