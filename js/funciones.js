@@ -40,6 +40,7 @@ function calcTotal() {
 
     totalMoney = 0;
     totalTimeJail = 0;
+    let placaAgente = document.getElementById('dropdownAgentes').value;
 
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS DE TRÁFICO
     traficPenalties.forEach(element => {
@@ -66,13 +67,13 @@ function calcTotal() {
     });
 
     prepararTotal();
-    mostrarTotal(totalMoney, totalTimeJail);
+    mostrarTotal(totalMoney, totalTimeJail, placaAgente);
 
 }
 
 
 // MUESTRA EL TOTAL DE LA CONDENA
-function mostrarTotal(totalMoney, totalTimeJail) {
+function mostrarTotal(totalMoney, totalTimeJail, placaAgente) {
 
     let fecha = new Date();
     let idMulta = parseInt(Math.random() * 1000);
@@ -80,7 +81,7 @@ function mostrarTotal(totalMoney, totalTimeJail) {
 
     nuevoParrafo.innerHTML = "";
 
-    nuevoParrafo.innerHTML += `<p id="polcad"><b>/mult IDDELSUJETO ${idMulta} ${totalMoney.toFixed(2)}</b><br></p>`;
+    nuevoParrafo.innerHTML += `<p id="polcad"><b>/mult IDDELSUJETO ${placaAgente} ${totalMoney.toFixed(2)}</b><br></p>`;
 
     let parrafoPolcad = document.getElementById("polcad");
 
@@ -100,21 +101,23 @@ function mostrarTotal(totalMoney, totalTimeJail) {
         parrafoPolcad.innerHTML += `${multas.Graves[element].Nombre} x${multas.Graves[element].Cantidad} ${multas.Graves[element].Precio}$, `;
     });
 
-    parrafoPolcad.innerHTML += `ID: ${idMulta}, `;
+    parrafoPolcad.innerHTML += `ID: ${placaAgente}, `;
 
     parrafoPolcad.innerHTML += `<p><b>TOTAL: ${totalMoney.toFixed(2)} / ${totalTimeJail.toFixed(2)} ${calcularEncarcelamiento(totalTimeJail)} (${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()})</p></b>`;
     parrafoPolcad.innerHTML += `<div class="row">
-    <div class="col-sm-2">
-        <button id="botonAtenuar" class="btn btn-primary" onclick="atenuarMulta()"><i class="fas fa-angle-double-down"></i></button>
+    <div class="col-sm-3 flex">
+        <button id="botonAtenuar" class="btn btn-primary alinearCentro" onclick="atenuarMulta()"><i class="fas fa-angle-double-down"></i></button>
     </div>
-    <div class="col-sm-2">
-        <button id="botonNoCoopera" class="btn btn-danger" onclick="noCoopera()"><i class="fas fa-angle-double-up"></i></button>
+    <div class="col-sm-3 flex">
+        <button id="botonNoCoopera" class="btn btn-danger alinearCentro" onclick="noCoopera()"><i class="fas fa-angle-double-up"></i></button>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-5">
         <input id="drogaInput" type="number" placeholder="M / PP.AA">
         <button class="drogaBoton" onclick="calcularDroga()" id="drogaBoton"><span class="fas fa-calculator"></span></button>
     </div>
     </div>`;
+
+    
 
 }
 
@@ -223,9 +226,20 @@ function prepararTotal() {
                                    <button id="${element}" name="tipoGrave" class="far fa-times-circle quitarMulta col-md-2" onclick="eliminarMulta(this)"></button>`;
     });
 
-    nuevoParrafo.innerHTML += `<button type="button" class="btn btn-primary botonCalcularMultas" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
-    Calcular
-  </button>`;
+    nuevoParrafo.innerHTML += `
+    <div class="row">
+        <div class="col-sm-12">  
+            <select id="dropdownAgentes">
+                <option value="volvo">Zack</option>
+                <option value="1001">Jackson</option>
+                <option value="mercedes">Mia</option>
+                <option value="audi">Noncan</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary col-sm-12" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
+            Calcular
+        </button>
+    </div>`;
 }
 
 function mostrarMultasFuncion() {

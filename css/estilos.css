@@ -274,13 +274,27 @@ body {
     color: beige;
 }
 
-.botonCalcularMultas {
-    margin: auto;
-}
-
 #total .col-md-2 {
     background: none;
     height: 50%;
+}
+
+#total button[type="button"] {
+    max-width: 200px;
+
+    margin: auto;
+}
+
+#dropdownAgentes {
+    margin-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+.alinearCentro {
+    align-self: center;
 }
 
 
