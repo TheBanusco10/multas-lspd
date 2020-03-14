@@ -40,7 +40,10 @@ function calcTotal() {
 
     totalMoney = 0;
     totalTimeJail = 0;
-    let placaAgente = document.getElementById('dropdownAgentes').value;
+    placaAgente = document.getElementById('dropdownAgentes').value;
+
+    console.log(placaAgente);
+    
 
     // CALCULAMOS EL DINERO Y LA FEDERAL TOTAL DE LAS MULTAS DE TRÁFICO
     traficPenalties.forEach(element => {
@@ -67,17 +70,19 @@ function calcTotal() {
     });
 
     prepararTotal();
-    mostrarTotal(totalMoney, totalTimeJail, placaAgente);
+    mostrarTotal(totalMoney, totalTimeJail);
 
 }
 
 
 // MUESTRA EL TOTAL DE LA CONDENA
-function mostrarTotal(totalMoney, totalTimeJail, placaAgente) {
+function mostrarTotal(totalMoney, totalTimeJail) {
 
     let fecha = new Date();
-    let idMulta = parseInt(Math.random() * 1000);
     let nuevoParrafo = document.getElementById("modal-body");
+
+    console.log(placaAgente);
+    
 
     nuevoParrafo.innerHTML = "";
 

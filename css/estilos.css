@@ -308,6 +308,19 @@ body {
 */
 
 
+.botonPrueba {
+    padding: 5px;
+    width: 150px;
+    border-radius: 30px;
+    border: 1px solid white;
+
+    margin: 10px;
+    background-color: transparent;
+    color: black;
+
+    transition: border .2s linear;
+}
+
 /*
 * =============================
 *   ICONOS DE SUBIDA Y BAJADA RÁPIDA
