@@ -246,6 +246,7 @@ function prepararTotal() {
                 <option value="1211">Mike Lawry</option>
                 <option value="1323">Danger Thompson</option>
                 <option value="1364">John Blake</option>
+                <option value="3251">Marcus Torres</option>
             </select>
         </div>
         <button type="button" class="btn btn-primary col-sm-12" data-toggle="modal" data-target="#totalMulta" onclick="calcTotal()">
